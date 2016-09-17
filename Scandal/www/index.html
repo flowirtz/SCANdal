@@ -70,7 +70,7 @@
               <i class="material-icons">arrow_back</i>
             </button>
             <!-- Title -->
-            <span class="mdl-layout-title" style="position: absolute; left: 50px; letter-spacing: 2px;"><strong>SCAN</strong>dal</span>
+            <span class="mdl-layout-title" style="position: absolute; left: 50px;">SCANdal</span>
 
             <!-- Right aligned menu below button -->
             <button id="demo-menu-lower-right"
@@ -88,164 +88,173 @@
         <main class="mdl-layout__content">
           <div class="page-content">
             <!-- TAB CONTENT -->
-            <section id="tabs">
-                  <!-- VOUCHER -->
-                  <style>
-                    .demo-card-wide.mdl-card {
-                      width: 100%;
-                    }
-                    .demo-card-wide > .mdl-card__title {
-                      color: #fff;
-                      height: 176px;
-                      background: url('res/coupon/mycrossang.jpg') center / cover;
-                    }
-                    .demo-card-wide > .mdl-card__menu {
-                      color: #fff;
-                    }
-                  </style>
-                  <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="coupon" style="display: none;" onclick="showCouponView()">
-                    <div class="mdl-card__title">
-                      <h2 class="mdl-card__title-text">&nbsp;<strong>20% OFF</strong></h2>
-                    </div>
-                    <div class="mdl-card__supporting-text" style="background: #e91e63;color: #fff;width:100%;font-weight: bold;">
-                      Croissants: 20% off, only today.
-                    </div>
-                  </div>
+          <section id="tabs">
+              <!-- VOUCHER -->
+              <style>
+                .demo-card-wide.mdl-card {
+                  width: 100%;
+                }
+                .demo-card-wide > .mdl-card__title {
+                  color: #fff;
+                  height: 176px;
+                  background: url('res/coupon/mycrossang.jpg') center / cover;
+                }
+                .demo-card-wide > .mdl-card__menu {
+                  color: #fff;
+                }
+              </style>
+              <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="coupon" style="display: none;">
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">&nbsp;<strong>20% OFF</strong></h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  Croissants: 20% off, only today.
+                </div>
+              </div>
 
-                  <!-- MAIN -->
-                  <!--
-                <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-                  <div class="mdl-tabs__tab-bar">
+              <!-- MAIN -->
+              <!--
+            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+              <div class="mdl-tabs__tab-bar">
 
-                    <a href="#purchases-panel" id="purchases_tab" class="mdl-tabs__tab is-active">Purchases</a>
-                    <a href="#ideas-panel" class="mdl-tabs__tab">Ideas</a>
-                  </div>
+                <a href="#purchases-panel" id="purchases_tab" class="mdl-tabs__tab is-active">Purchases</a>
+                <a href="#ideas-panel" class="mdl-tabs__tab">Ideas</a>
+              </div>
 
-                    <div class="mdl-tabs__panel" id="purchases-panel">
-                        <div class="demo-list-action mdl-list unselectable" id="purchases">
-                        </div>
+                <div class="mdl-tabs__panel" id="purchases-panel">
+                    <div class="demo-list-action mdl-list unselectable" id="purchases">
                     </div>
-                      <<<<<<< HEAD
-                  </div>
-                </div>-->
-                <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-                  <div class="mdl-tabs__tab-bar">
-                    <a href="#juli-panel" class="mdl-tabs__tab">July</a>
-                    <a href="#august-panel" class="mdl-tabs__tab">August</a>
-                    <a href="#september-panel" class="mdl-tabs__tab is-active">September</a>
-                  </div>
-                  <!----------------------------------------------------------------->
-                  <!-- JULI -->
-                  <div class="mdl-tabs__panel" id="juli-panel">
-                    <ul>
-                      <li>Eddard</li>
-                      <li>Catelyn</li>
-                      <li>Robb</li>
-                      <li>Sansa</li>
-                      <li>Brandon</li>
-                      <li>Arya</li>
-                      <li>Rickon</li>
-                    </ul>
-                  </div>
-                  <!----------------------------------------------------------------->
-                  <!-- AUGUST -->
-                  <div class="mdl-tabs__panel" id="august-panel">
-                    <div class="demo-list-action mdl-list unselectable">
-                      <!-- SONNTAG -->
-                      <div class="mdl-list__item day_title">
-                        <span class="mdl-list__item-primary-content">
-                          <b>Sunday</b>, 18.
-                        </span>
-                        <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
-                      </div>
-                    </div>
-                  </div>
-                  <!----------------------------------------------------------------->
-                  <!-- SEPTEMBER -->
-                  <div class="mdl-tabs__panel is-active month_panel" id="september-panel">
-                    <!-- SONNTAG -->
-                    <div class="demo-list-action mdl-list unselectable">
-                      <div class="mdl-list__item day_title">
-                        <span class="mdl-list__item-primary-content">
-                          <b>Sunday</b>, 18.
-                        </span>
-                        <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
-                      </div>
-                      <div class="mdl-list__item buy_entry">
-                        <span class="mdl-list__item-primary-content">
-                          <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">D</span>
-                        <span>Ditsch</span>
-                        </span>
-                        <a class="mdl-list__item-secondary-action">1.70 €</a>
-                      </div>
-                      <div class="mdl-list__item buy_entry">
-                        <span class="mdl-list__item-primary-content">
-                          <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">k</span>
-                        <span>k-kiosk</span>
-                        </span>
-                        <a class="mdl-list__item-secondary-action">5.40 €</a>
-                      </div>
-                      <hr />
-                    </div>
-                    <!-- SAMSTAG -->
-                    <div class="demo-list-action mdl-list unselectable">
-                      <div class="mdl-list__item day_title">
-                        <span class="mdl-list__item-primary-content">
-                          <b>Saturday</b>, 17.
-                        </span>
-                        <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
-                      </div>
-                      <div class="mdl-list__item buy_entry">
-                        <span class="mdl-list__item-primary-content">
-                          <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">D</span>
-                        <span>Ditsch</span>
-                        </span>
-                        <a class="mdl-list__item-secondary-action">1.70 €</a>
-                      </div>
-                      <div class="mdl-list__item buy_entry">
-                        <span class="mdl-list__item-primary-content">
-                          <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">k</span>
-                        <span>k-kiosk</span>
-                        </span>
-                        <a class="mdl-list__item-secondary-action">5.40 €</a>
-                      </div>
-                      <hr />
-                    </div>
-                    <!-- FREITAG -->
-                    <div class="demo-list-action mdl-list unselectable">
-                      <div class="mdl-list__item day_title">
-                        <span class="mdl-list__item-primary-content">
-                          <b>Friday</b>, 16.
-                        </span>
-                        <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
-                      </div>
-                      <div class="mdl-list__item buy_entry">
-                        <span class="mdl-list__item-primary-content">
-                          <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">D</span>
-                        <span>Ditsch</span>
-                        </span>
-                        <a class="mdl-list__item-secondary-action">1.70 €</a>
-                      </div>
-                      <div class="mdl-list__item buy_entry">
-                        <span class="mdl-list__item-primary-content">
-                          <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">k</span>
-                        <span>k-kiosk</span>
-                        </span>
-                        <a class="mdl-list__item-secondary-action">5.40 €</a>
-                      </div>
-                      <hr />
-                    </div>
+                </div>
+<<<<<<< HEAD
+              </div>
+            </div>-->
+            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+              <div class="mdl-tabs__tab-bar">
+                <a href="#juli-panel" class="mdl-tabs__tab">Juli</a>
+                <a href="#august-panel" class="mdl-tabs__tab">August</a>
+                <a href="#september-panel" class="mdl-tabs__tab is-active">September</a>
+              </div>
+              <!----------------------------------------------------------------->
+              <!-- JULI -->
+              <div class="mdl-tabs__panel" id="juli-panel">
+                <ul>
+                  <li>Eddard</li>
+                  <li>Catelyn</li>
+                  <li>Robb</li>
+                  <li>Sansa</li>
+                  <li>Brandon</li>
+                  <li>Arya</li>
+                  <li>Rickon</li>
+                </ul>
+              </div>
+              <!----------------------------------------------------------------->
+              <!-- AUGUST -->
+              <div class="mdl-tabs__panel" id="august-panel">
+                <div class="demo-list-action mdl-list unselectable">
+                  <!-- SONNTAG -->
+                  <div class="mdl-list__item day_title">
+                    <span class="mdl-list__item-primary-content">
+                      <b>Sonntag</b>, 18.
+                    </span>
+                    <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
                   </div>
                 </div>
+              </div>
+              <!----------------------------------------------------------------->
+              <!-- SEPTEMBER -->
+              <div class="mdl-tabs__panel is-active month_panel" id="september-panel">
+                <!-- SONNTAG -->
+                <div class="demo-list-action mdl-list unselectable">
+                  <div class="mdl-list__item day_title">
+                    <span class="mdl-list__item-primary-content">
+                      <b>Sonntag</b>, 18.
+                    </span>
+                    <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
+                  </div>
+                  <div class="mdl-list__item buy_entry">
+                    <span class="mdl-list__item-primary-content">
+                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">D</span>
+                    <span>Ditsch</span>
+                    </span>
+                    <a class="mdl-list__item-secondary-action">1.70 €</a>
+                  </div>
+                  <div class="mdl-list__item buy_entry">
+                    <span class="mdl-list__item-primary-content">
+                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">k</span>
+                    <span>k-kiosk</span>
+                    </span>
+                    <a class="mdl-list__item-secondary-action">5.40 €</a>
+                  </div>
+                  <hr />
+                </div>
+                <!-- SAMSTAG -->
+                <div class="demo-list-action mdl-list unselectable">
+                  <div class="mdl-list__item day_title">
+                    <span class="mdl-list__item-primary-content">
+                      <b>Samstag</b>, 17.
+                    </span>
+                    <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
+                  </div>
+                  <div class="mdl-list__item buy_entry">
+                    <span class="mdl-list__item-primary-content">
+                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">D</span>
+                    <span>Ditsch</span>
+                    </span>
+                    <a class="mdl-list__item-secondary-action">1.70 €</a>
+                  </div>
+                  <div class="mdl-list__item buy_entry">
+                    <span class="mdl-list__item-primary-content">
+                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">k</span>
+                    <span>k-kiosk</span>
+                    </span>
+                    <a class="mdl-list__item-secondary-action">5.40 €</a>
+                  </div>
+                  <hr />
+                </div>
+                <!-- FREITAG -->
+                <div class="demo-list-action mdl-list unselectable">
+                  <div class="mdl-list__item day_title">
+                    <span class="mdl-list__item-primary-content">
+                      <b>Freitag</b>, 16.
+                    </span>
+                    <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
+                  </div>
+                  <div class="mdl-list__item buy_entry">
+                    <span class="mdl-list__item-primary-content">
+                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">D</span>
+                    <span>Ditsch</span>
+                    </span>
+                    <a class="mdl-list__item-secondary-action">1.70 €</a>
+                  </div>
+                  <div class="mdl-list__item buy_entry">
+                    <span class="mdl-list__item-primary-content">
+                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">k</span>
+                    <span>k-kiosk</span>
+                    </span>
+                    <a class="mdl-list__item-secondary-action">5.40 €</a>
+                  </div>
+                  <hr />
+                </div>
+              </div>
+            </div>
 
-                <button style="position: fixed; bottom:  24px; right: 24px;" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" onclick="scanning();">
-                    <i class="material-icons">add</i>
+            <button style="position: fixed; bottom:  24px; right: 24px;" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" onclick="scanning();">
+                <i class="material-icons">add</i>
 
-                </button>
+            </button>
+          </section>
+<!--=======
+
+                <div class="mdl-tabs__panel" id="ideas-panel">Hey, here are some cool products!</div>
+
+
+
+
             </section>
+>>>>>>> c8fa188c3af793b725ee2a7be416775880cf54ab-->
 
             <!-- DETAIL VIEW -->
-            <section id="details" style="display:none">
+          <section id="details" style="display:none">
               <!-- Header card -->
               <style>
               .demo-card-event.mdl-card {
@@ -320,7 +329,7 @@
           </section>
 
             <!-- CREDITS VIEW -->
-            <section id="credits" style="display:none">
+          <section id="credits" style="display:none">
             <style>
             .demo-list-item {
               width: 100%;
@@ -335,6 +344,7 @@
               </li>
             </ul>
           </section>
+
 
             <!-- COUPON VIEW -->
             <section id="coupon_view" style="display:none">
@@ -365,7 +375,6 @@
               <img src="res/coupon/qrcode.png" alt="Your coupon code" style="max-width: 100%; height: auto;">
 
             </section>
-
           </div>
         </main>
 
@@ -402,14 +411,6 @@
                 });
               }
 
-              function showCouponView() {
-                $("#tabs").hide();
-                $("#details").hide();
-                $("#back_button").show();
-                $("#logo_small").hide();
-                $("#coupon_view").show();
-              }
-
               function showDetails(detail_id) {
                 populateDetails(detail_id);
                 $("#tabs").hide();
@@ -433,6 +434,15 @@
                 $("#back_button").hide();
                 $("#logo_small").show();
                 $("#credits").hide();
+              }
+
+              //TODO wtf?!
+              function createDay(day) {
+
+              }
+
+              function populateDetails(detail_id) {
+                  //TODO have fun. :/
               }
 
           </script>
