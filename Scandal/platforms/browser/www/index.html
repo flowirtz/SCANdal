@@ -197,10 +197,14 @@
             <script>
               $( document ).ready(function() {
                 setInitialListeners();
-
+                
+                scanning();
+                
                 $("#back_button").click(function() {
                   showDetails(null);
                 });
+                 
+                
               });
 
               function setInitialListeners() {

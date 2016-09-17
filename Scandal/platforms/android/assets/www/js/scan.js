@@ -12,10 +12,12 @@ function scanning(){
 }
 
 function success(session){
-	alert("Scanned " + session.newlyRecognizedCodes[0].data);
+
+	var receiptData = session.newlyRecognizedCodes[0].data;
+	alert(receiptData);
 }
 
 function failure(error){
-	alert("error");
+	alert("The receipt data couldn't be fetched from the QR Code! Buy again ;)!");
 }
 
