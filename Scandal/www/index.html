@@ -42,7 +42,6 @@
   <script src="mdl/material.min.js"></script>
   <script src="js/jquery-3.1.0.min.js"></script>
   <script type="text/javascript" src="js/scan.js"> </script>
-  <script src="js/getValoraData.js"></script>
   <link rel="stylesheet" href="css/index.css">
   <!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
   <title>SCANdal</title>
@@ -327,80 +326,9 @@
                 </button>
             </section>
 
-            <!-- DETAIL VIEW -->
-            <section id="details" style="display:none">
-              <!-- Header card -->
-              <style>
-              .demo-card-event.mdl-card {
-                width: 100%;
-                height: 176px;
-                background: #3E4EB8;
-              }
-              .demo-card-event > .mdl-card__actions {
-                border-color: rgba(255, 255, 255, 0.2);
-              }
-              .demo-card-event > .mdl-card__actions {
-                display: flex;
-                box-sizing:border-box;
-                align-items: center;
-              }
-              .demo-card-event > .mdl-card__actions > .material-icons {
-                padding-right: 10px;
-              }
-              .demo-card-event > .mdl-card__title,
-              .demo-card-event > .mdl-card__actions,
-              .demo-card-event > .mdl-card__actions > .mdl-button {
-                color: #fff;
-              }
-              </style>
+            <!-- DETAIL VIEW HERE - INCLUDE -->
+            <div id="insertItHere"></div>
 
-              <div class="demo-card-event mdl-card mdl-shadow--2dp" onclick="window.open('https://www.google.com/maps/place/Berlin+Hbf/@52.5246269,13.3677176,17z/data=!4m5!3m4!1s0x47a851bdfde3ae73:0x9234e07e8bd376ff!8m2!3d52.5249785!4d13.3699999');">
-                <div class="mdl-card__title mdl-card--expand" id="header_card">
-                  <h2 style="position: relative; bottom: -10px;">Ditsch</h2>
-                  <p style="position: absolute; bottom: 0;">
-                    Berlin central station<br>
-                    10557 Berlin
-                  </p>
-                </div>
-                <!--
-                <div class="mdl-card__actions mdl-card--border">
-                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    Add to Calendar
-                  </a>
-                  <div class="mdl-layout-spacer"></div>
-                  <i class="material-icons">event</i>
-                </div>-->
-              </div>
-
-
-              <table class="mdl-data-table mdl-js-data-table" style="width: 100%">
-              <thead>
-                <tr>
-                  <th class="mdl-data-table__cell--non-numeric">Product</th>
-                  <th>Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="mdl-data-table__cell--non-numeric">John Lennon</td>
-                  <td>40</td>
-                </tr>
-                <tr>
-                  <td class="mdl-data-table__cell--non-numeric">Paul McCartney</td>
-                  <td>73</td>
-                </tr>
-                <tr>
-                  <td class="mdl-data-table__cell--non-numeric">George Harrison</td>
-                  <td>58</td>
-                </tr>
-                <tr>
-                  <td class="mdl-data-table__cell--non-numeric">Ringo Starr</td>
-                  <td>74</td>
-                </tr>
-              </tbody>
-            </table>
-
-          </section>
 
             <!-- CREDITS VIEW -->
             <section id="credits" style="display:none">
@@ -491,6 +419,7 @@
                 $("#back_button").show();
                 $("#logo_small").hide();
                 $("#coupon_view").show();
+                $("#credits").hide();
               }
 
               function showDetails(detail_id) {
@@ -499,6 +428,8 @@
                 $("#details").show();
                 $("#back_button").show();
                 $("#logo_small").hide();
+                $("#coupon_view").hide();
+                $("#credits").hide();
               }
 
               function showCredits() {
@@ -516,12 +447,15 @@
                 $("#back_button").hide();
                 $("#logo_small").show();
                 $("#credits").hide();
+                $("#coupon_view").hide();
               }
 
           </script>
           </div>
       </div>
       <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="js/fillDetailView.js"> </script>
+      <script src="js/getValoraData.js"></script>
       <script type="text/javascript" src="js/index.js"></script>
       <script type="text/javascript" src="js/database.js"></script>
       <script type="text/javascript" src="js/populateWithData.js"></script>
