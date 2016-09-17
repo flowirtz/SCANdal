@@ -1,4 +1,4 @@
-﻿lastBuyId = null;
+lastBuyId = null;
 curData = null;
 buyCallback = null;
 
@@ -28,7 +28,7 @@ function createTables(tx) {
 function insertBuy(data, callback) {
     curData = data;
     buyCallback = callback;
-    
+
     db.transaction(function (tx) {
         console.log(JSON.stringify(data));
         tx.executeSql('INSERT INTO BUY (date, store_id, total) VALUES (?, ?, ?)', [new Date(), data.store_id, data.total], insertBuyItems, errorCB);
@@ -78,7 +78,7 @@ function itemsRead(tx, results) {
 
 function getBuys() {
     // hier wird eine Liste von Käufen zurückgeliefert
-    
+
 }
 
 // dummy data

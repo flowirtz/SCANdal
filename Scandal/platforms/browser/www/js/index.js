@@ -17,7 +17,7 @@
  * under the License.
  */
 var app = {
-    // Application Constructor
+    /* Application Constructor
     initialize: function() {
         this.bindEvents();
     },
@@ -34,8 +34,9 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+       	scanning();
     },
-    // Update DOM on a Received Event
+    /* Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
@@ -45,5 +46,5 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    }
+    }*/
 };

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1,
+            minimum-scale=1, width=device-width, height=device-height" />
+        <title>Scandit Barcode Scanner</title>
+    </head>
+    <body style='background:black'>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript">
+            // On Windows, the alert function doesn't exist, so we add it.
+            window.alert = window.alert !== undefined ? window.alert : function (message) {
+                var alertBox = new Windows.UI.Popups.MessageDialog(message);
+                alertBox.showAsync();
+            };
+            function success(session) {
+                alert("Scanned " + session.newlyRecognizedCodes[0].symbology
+                        + " code: " + session.newlyRecognizedCodes[0].data);
+            }
+            function failure(error) {
+                alert("Failed: " + error);
+            }
+            function scan() {
+                Scandit.License.setAppKey("--- ENTER YOUR SCANDIT APP KEY HERE ---");
+                var settings = new Scandit.ScanSettings();
+                settings.setSymbologyEnabled(Scandit.Barcode.Symbology.EAN13, true);
+                settings.setSymbologyEnabled(Scandit.Barcode.Symbology.UPC12, true);
+                settings.setSymbologyEnabled(Scandit.Barcode.Symbology.EAN8, true);
+                settings.setSymbologyEnabled(Scandit.Barcode.Symbology.CODE39, true);
+
+                // Some 1d barcode symbologies allow you to encode variable-length data. By default, the
+                // Scandit BarcodeScanner SDK only scans barcodes in a certain length range. If your
+                // application requires scanning of one of these symbologies, and the length is falling
+                // outside the default range, you may need to adjust the "active symbol counts" for this
+                // symbology. This is shown in the following few lines of code.
+                var symSettings = settings.getSymbologySettings(Scandit.Barcode.Symbology.CODE39);
+                symSettings.activeSymbolCounts = [
+                    7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20
+                ];
+                // For details on defaults and how to calculate the symbol counts for each symbology, take
+                // a look at http://docs.scandit.com/stable/c_api/symbologies.html.
+
+                var picker = new Scandit.BarcodePicker(settings);
+                picker.show(success, null, failure);
+                picker.startScanning();
+            }
+        </script>
+        <div align="center" valign="center">
+            <input type="button" value="scan" onclick="scan()" style="margin-top: 230px;
+                    width: 100px; height: 30px; font-size: 1em"/>
+        </div>
+    </body>
+</html>
