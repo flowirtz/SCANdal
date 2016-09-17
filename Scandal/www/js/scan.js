@@ -1,4 +1,6 @@
 
+count = 0;
+
 function scanning(){
 
 	Scandit.License.setAppKey("ptxGMCdm5Miis76+JubgFmEULaZUmWbdajgz9zTFn88");
@@ -15,6 +17,9 @@ function scanning(){
 
 function success(session){
 	var receiptData = session.newlyRecognizedCodes[0].data;
+
+	count++;
+	
 	searchForProducts(JSON.parse(receiptData.replace(/\'/g, '\"')));
 }
 

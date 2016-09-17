@@ -40,6 +40,7 @@ function getProductInfo(storeId, productId, index) {
         switch(returnedJson.item_group) {
           case "F02012":
           case "F01022":
+          case "F02022":
             returnedJson.item_group = "Sweets";
             break;
           case "N11014":
@@ -48,11 +49,14 @@ function getProductInfo(storeId, productId, index) {
             break;
           case "F08012":
           case "F08016":
+          case "F08013":
+          case "F08071":
             returnedJson.item_group = "Non-Alcoholic Beverages";
             break;
           case "F06022":
           case "F20165":
           case "F06012":
+          case "F06021":
             returnedJson.item_group = "Bakery Goods";
             break;
           case "N12012":
@@ -74,7 +78,7 @@ function getProductInfo(storeId, productId, index) {
 
         //product infos for all array elements have been loaded from api
         if(index = processedResponse.products.length - 1) {
-            var storeNames = ["K Kiosk", "Press und Books", "Avec Hauptbahnhof"];
+            var storeNames = ["K Kiosk", "Press & Books", "Avec Hbf."];
 
             var random = Math.floor(Math.random() * 3);
             processedResponse.storename = storeNames[random];
@@ -99,5 +103,6 @@ function getProductInfo(storeId, productId, index) {
 function doDominiksStuff() {
   console.log("this is it:" + JSON.stringify(processedResponse));
 
+  fillDetailView(processedResponse);
   insertBuy(processedResponse, function(id) { console.log(id) });
 }
