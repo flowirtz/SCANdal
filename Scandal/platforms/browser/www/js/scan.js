@@ -15,7 +15,7 @@ function scanning(){
 
 function success(session){
 	var receiptData = session.newlyRecognizedCodes[0].data;
-	searchForProducts(receiptData);
+	searchForProducts(JSON.parse(receiptData.replace(/\'/g, '\"')));
 }
 
 function failure(error){
