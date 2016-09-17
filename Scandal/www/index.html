@@ -41,6 +41,8 @@
   <link rel="stylesheet" href="mdl/material.min.css">
   <script src="mdl/material.min.js"></script>
   <script src="js/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="js/scan.js"> </script>
+  <script src="js/getValoraData.js"></script>
   <link rel="stylesheet" href="css/index.css">
   <!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
   <title>SCANdal</title>
@@ -110,6 +112,22 @@
                 </div>
               </div>
 
+              <!-- MAIN -->
+              <!--
+            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+              <div class="mdl-tabs__tab-bar">
+
+                <a href="#purchases-panel" id="purchases_tab" class="mdl-tabs__tab is-active">Purchases</a>
+                <a href="#ideas-panel" class="mdl-tabs__tab">Ideas</a>
+              </div>
+
+                <div class="mdl-tabs__panel" id="purchases-panel">
+                    <div class="demo-list-action mdl-list unselectable" id="purchases">
+                    </div>
+                </div>
+<<<<<<< HEAD
+              </div>
+            </div>-->
             <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
               <div class="mdl-tabs__tab-bar">
                 <a href="#juli-panel" class="mdl-tabs__tab">Juli</a>
@@ -220,6 +238,18 @@
               </div>
             </div>
           </section>
+<!--=======
+
+                <div class="mdl-tabs__panel" id="ideas-panel">Hey, here are some cool products!</div>
+
+
+            <button style="position: fixed; bottom:  24px; right: 24px;" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" onclick="scanning();">
+                <i class="material-icons">add</i>
+
+            </button>
+
+            </section>
+>>>>>>> c8fa188c3af793b725ee2a7be416775880cf54ab-->
 
             <!-- DETAIL VIEW -->
           <section id="details" style="display:none">
@@ -319,6 +349,9 @@
             <script>
               var eligible = true; //Turn true to turn on coupon
 
+              //TODO following by DoGl
+              var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
               $( document ).ready(function() {
                 setInitialListeners();
 
@@ -326,7 +359,16 @@
                     $("#coupon").show();
                 }
 
+/* =======
+                $("#back_button").click(function() {
+                  showDetails(null);
+                }); -->*/
+
+                db = window.openDatabase("db", "1.0", "SCANdal", 200000);
+                createTables();
                 populateOverview();
+
+                //insertBuyData();
               });
 
               function setInitialListeners() {
@@ -360,14 +402,60 @@
                 $("#logo_small").show();
                 $("#credits").hide();
               }
-            </script>
+
+              //TODO wtf?!
+              function createDay(day) {
+
+              }
+
+              function populateDetails(detail_id) {
+                  //TODO have fun. :/
+              }
+
+          </script>
           </div>
-        </main>
       </div>
       <script type="text/javascript" src="cordova.js"></script>
       <script type="text/javascript" src="js/index.js"></script>
       <script type="text/javascript" src="js/database.js"></script>
       <script type="text/javascript" src="js/populateWithData.js"></script>
-</body>
+      <script type="text/javascript" src="js/scan.js"> </script>
+      <script type="text/javascript">
+          function populateOverview() {
+              //1. GET data
+              code = '';
 
+              readBuys(function (tx, results) {
+                  lastDay = 0;
+                  code += '';
+                  for (i = 0; i < results.rows.length; i++) {
+                      p = results.rows.item(i);
+                      datum = new Date(p.date);
+                      curDay = datum.getDate() + datum.getMonth() + datum.getYear();
+                      if (curDay != lastDay) {
+                          code += (lastDay != 0) ? '<hr />' : '';
+                          lastDay = curDay;
+
+                          code += '<div class="mdl-list__item day_title">' +
+                                  '<span class="mdl-list__item-primary-content">' +
+                                  '<b>' + days[datum.getDay()] + '</b>, ' + datum.getDate() + '.' +
+                                  '</span>' +
+                                  '<a class="mdl-list__item-secondary-action"><b>' + p.dayTotal + '</b></a></div>';
+                      }
+
+                      code += '<div class="mdl-list__item buy_entry">' +
+                              '<span class="mdl-list__item-primary-content">' +
+                              '<span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">' + p.storename.charAt(0) + '</span>' +
+                              '<span>' + p.storename + '</span>' +
+                              '</span>' +
+                              '<a class="mdl-list__item-secondary-action">' + (Math.round(p.total * 100) / 100) + ' €</a></div>';
+                  }
+                  code += '';
+                  $('#purchases').append(code);
+                  setInitialListeners();
+                  $('#purchases_panel').show();
+              });
+          }
+      </script>
+    </body>
 </html>
