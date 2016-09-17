@@ -7,13 +7,13 @@
         "files": {}
     },
     "installed_plugins": {
+        "com.mirasense.scanditsdk.plugin": {
+            "PACKAGE_NAME": "org.jefd.scandalous"
+        },
         "cordova-plugin-battery-status": {
             "PACKAGE_NAME": "org.jefd.scandalous"
         },
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "org.jefd.scandalous"
-        },
-        "cordova-plugin-media-capture": {
             "PACKAGE_NAME": "org.jefd.scandalous"
         },
         "cordova-plugin-console": {
@@ -49,6 +49,9 @@
         "cordova-plugin-media": {
             "PACKAGE_NAME": "org.jefd.scandalous"
         },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "org.jefd.scandalous"
+        },
         "cordova-plugin-network-information": {
             "PACKAGE_NAME": "org.jefd.scandalous"
         },
@@ -62,9 +65,6 @@
             "PACKAGE_NAME": "org.jefd.scandalous"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "org.jefd.scandalous"
-        },
-        "com.mirasense.scanditsdk.plugin": {
             "PACKAGE_NAME": "org.jefd.scandalous"
         }
     },
