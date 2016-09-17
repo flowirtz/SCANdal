@@ -74,7 +74,7 @@ function getProductInfo(storeId, productId, index) {
 
         //product infos for all array elements have been loaded from api
         if(index = processedResponse.products.length - 1) {
-            var storeNames = ["K Kiosk", "Press und Books", "Avec Hauptbahnhof"];
+            var storeNames = ["K Kiosk", "Press & Books", "Avec Hbf."];
 
             var random = Math.floor(Math.random() * 3);
             processedResponse.storename = storeNames[random];
@@ -99,5 +99,6 @@ function getProductInfo(storeId, productId, index) {
 function doDominiksStuff() {
   console.log("this is it:" + JSON.stringify(processedResponse));
 
+  fillDetailView(processedResponse);
   insertBuy(processedResponse, function(id) { console.log(id) });
 }
