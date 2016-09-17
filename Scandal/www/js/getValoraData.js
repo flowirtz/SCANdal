@@ -74,6 +74,8 @@ function getProductInfo(storeId, productId, index) {
 
         //product infos for all array elements have been loaded from api
         if(index = processedResponse.products.length - 1) {
+            var storeNames = ["k kiosk Aeroport", "avec. Zürich Hbf.", "k kiosk Lyssbachpark"];
+            processedResponse.storename = storeNames[Math.floor(Math.random() * 3))];
             doDominiksStuff();
         }
 
