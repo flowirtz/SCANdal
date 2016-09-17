@@ -53,6 +53,7 @@ function getProductInfo(storeId, productId, index) {
           case "F06022":
           case "F20165":
           case "F06012":
+          case "F06021":
             returnedJson.item_group = "Bakery Goods";
             break;
           case "N12012":
