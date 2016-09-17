@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <script src="bower_components/chartist/dist/chartist.min.js"></script>
+    <link href="bower_components/chartist/dist/chartist.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="ct-chart"></div>
+    <script>
+
+    var mock = {sweets: 4.59, tobacco: 4.99, non_alcoholic_beverages: 9.89, bakery_goods: 5.78, cosmetics: 13.99};
+
+  	var sum = mock.sweets + mock.tobacco + mock.non_alcoholic_beverages + mock.bakery_goods + mock.cosmetics;
+
+  	var fractions = [mock.sweets / sum, mock.tobacco / sum, mock.non_alcoholic_beverages / sum, mock.bakery_goods / sum, mock.cosmetics / sum];
+
+    var percentages = new Array(fractions.length);
+
+    for(var i = 0; i < percentages.length; i++) {
+      percentages[i] = Math.round(fractions[i] * 100) + '%';
+    }
+
+  	var colors = ["#FF00FF", "000000", "#0000CD", "#F4A460", "#FF0000"];
+
+  	var myLabels = ["Sweets", "Tobacco", "Non Alcoholic Beverages", "Bakery Goods", "Cosmetics"];
+
+    var data = {
+      series: fractions,
+      labels: percentages
+    };
+
+    var options = {
+      donut: true,
+      donutWidth: '42%',
+      showLabel: true,
+      labelPosition: 'outside'
+    };
+
+    new Chartist.Pie('.ct-chart', data, options);
+
+    </script>
+  </body>
+</html>

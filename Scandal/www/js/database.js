@@ -45,7 +45,8 @@ function insertBuyItems(tx, results) {
 
 function readBuys(callback) {
     db.transaction(function (tx) {
-        tx.executeSql('SELECT B.* FROM BUY B', [], callback, errorCB);
+        tx.executeSql("WITH D AS (select sum(total) daily, strftime('%d-%m-%Y', date/1000,'unixepoch') day from BUY group by strftime('%d-%m-%Y', date/1000,'unixepoch'))" +
+            "SELECT * FROM BUY B JOIN D ON D.day = strftime('%d-%m-%Y', B.date/1000,'unixepoch') ", [], callback, errorCB);
     }, errorCB);
 }
 
@@ -59,12 +60,12 @@ function readItems(buy_id, callback) {
 function getGroups(callback) {
     db.transaction(function (tx) {
         tx.executeSql('SELECT item_group, SUM(price) AS total FROM ITEM GROUP BY item_group ORDER BY SUM(price) DESC LIMIT 5', [], function (t, res) {
-            result = "{";
+            result = '{"groups": [';
             for (i = 0; i < res.rows.length; i++) {
                 result += (i > 0) ? ', ' : '';
-                result += '"' + res.rows.item(i).item_group + '": ' + res.rows.item(i).total;
+                result += '{"name": "' + res.rows.item(i).item_group + '", "total": ' + res.rows.item(i).total + '}';
             }
-            result += "}";
+            result += "]}";
             console.log(result);
             callback(JSON.parse(result));
         });
