@@ -80,7 +80,7 @@
               <div class="mdl-tabs__tab-bar">
                 
                 <a href="#purchases-panel" id="purchases_tab" class="mdl-tabs__tab is-active">Purchases</a>
-                <a href="#ideas-panel" class="mdl-tabs__tab">Ideasds</a>
+                <a href="#ideas-panel" class="mdl-tabs__tab">Ideas</a>
               </div>
               
                 <div class="mdl-tabs__panel" id="purchases-panel">
@@ -117,7 +117,8 @@
                   showDetails(null);
                 });
 
-                
+                db = window.openDatabase("db", "1.0", "SCANdal", 200000);
+                createTables();
                 populateOverview();
 
                 //insertBuyData();

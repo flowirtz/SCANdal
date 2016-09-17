@@ -41,6 +41,8 @@
   <link rel="stylesheet" href="mdl/material.min.css">
   <script src="mdl/material.min.js"></script>
   <script src="js/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="js/scan.js"> </script>
+  <script src="js/getValoraData.js"></script>
   <link rel="stylesheet" href="css/index.css">
   <!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
   <title>SCANdal</title>
@@ -76,15 +78,24 @@
             <section id="tabs">
             <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
               <div class="mdl-tabs__tab-bar">
+                
                 <a href="#purchases-panel" id="purchases_tab" class="mdl-tabs__tab is-active">Purchases</a>
                 <a href="#ideas-panel" class="mdl-tabs__tab">Ideas</a>
               </div>
+              
                 <div class="mdl-tabs__panel" id="purchases-panel">
                     <div class="demo-list-action mdl-list unselectable" id="purchases">
                     </div>
                 </div>
+              
                 <div class="mdl-tabs__panel" id="ideas-panel">Hey, here are some cool products!</div>
-                </div>
+                
+
+            <button style="position: fixed; bottom:  24px; right: 24px;" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" onclick="scanning();">
+                <i class="material-icons">add</i>
+
+            </button>
+
             </section>
 
             <!-- DETAIL VIEW -->
@@ -137,15 +148,12 @@
                   //TODO have fun. :/
               }
             </script>
-
-
           </div>
-        </main>
       </div>
       <script type="text/javascript" src="cordova.js"></script>
       <script type="text/javascript" src="js/index.js"></script>
       <script type="text/javascript" src="js/database.js"></script>
-      <!--<script type="text/javascript" src="js/scan.js"></script>-->
+      <script type="text/javascript" src="js/scan.js"> </script>
       <script type="text/javascript">
           //app.initialize();
           function populateOverview() {
@@ -186,7 +194,7 @@
                   $('#purchases_panel').show();
               });
           }
-      </script>
+        </script>
 </body>
 
 </html>

@@ -41,7 +41,6 @@ function insertBuyItems(tx, results) {
 }
 
 
-
 function readBuys(callback) {
     db.transaction(function (tx) {
         tx.executeSql('SELECT B.* FROM BUY B', [], callback, errorCB);
@@ -102,8 +101,7 @@ function insertItems(tx, results) {
 }
 
 function onDeviceReady() {
-    db = window.openDatabase("db", "1.0", "SCANdal", 200000);
-    createTables();
+    
 }
 
 // Transaction error callback
