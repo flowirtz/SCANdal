@@ -40,7 +40,8 @@
 
   <link rel="stylesheet" href="mdl/material.min.css">
   <script src="mdl/material.min.js"></script>
-  <script src="js/jquery-3.1.0.min.js"></script>
+  <script src="js/jquery-3.1.0.min.js"></script>  
+  <script type="text/javascript" src="js/scan.js"> </script>
   <link rel="stylesheet" href="css/index.css">
   <!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
   <title>SCANdal</title>
@@ -57,45 +58,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-    <div class="app">
-        <h1>PhoneGap is &lt;3</h1>
-        <div id="deviceready">
-            
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                    onclick="queryDB(createTables);">
-                CREATE TABLES
-            </button><br />
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                    onclick="modifyDB(deleteTables);">
-                DELETE TABLES
-            </button>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                    onclick="readBuys(querySuccess);">
-                READ BUYS
-            </button>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                    onclick="readItems(1, itemsRead);">
-                READ ITEMS
-            </button>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                    onclick="queryDB(insertRow);">
-                INSERT
-            </button>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                    onclick="insertBuyData();">
-                DUMMY BUY
-            </button><br />
-        </div>
-    </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/database.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
-
-=======
   <div class="app">
     <div id="deviceready">
       <!-- Always shows a header, even in smaller screens. -->
@@ -222,6 +184,12 @@
                 </div>
               </div>
             </div>
+
+            <button style="position: fixed; bottom:  24px; right: 24px;" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" onclick="scanning();">
+                <i class="material-icons">add</i>
+
+            </button>
+
             </section>
 
             <!-- DETAIL VIEW -->
@@ -265,10 +233,8 @@
       <script type="text/javascript" src="cordova.js"></script>
       <script type="text/javascript" src="js/index.js"></script>
       <script type="text/javascript" src="js/database.js"></script>
-      <script type="text/javascript">
-        //app.initialize();
-      </script>
->>>>>>> master
+      <script type="text/javascript" src="js/scan.js"> </script>
+
 </body>
 
 </html>

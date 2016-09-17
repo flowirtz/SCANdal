@@ -1,5 +1,6 @@
 
 function scanning(){
+
 	Scandit.License.setAppKey("ptxGMCdm5Miis76+JubgFmEULaZUmWbdajgz9zTFn88");
 
 	var settings = new Scandit.ScanSettings();
@@ -9,10 +10,12 @@ function scanning(){
 	
 	picker.show(success, null, failure);
 	picker.startScanning();
+	console.log("Moin");
 }
 
 function success(session){
-	alert("Scanned " + session.newlyRecognizedCodes[0].data);
+	var receiptData = session.newlyRecognizedCodes[0].data;
+	searchForProducts(receiptData);
 }
 
 function failure(error){
