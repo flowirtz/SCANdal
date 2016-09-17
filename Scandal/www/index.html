@@ -63,12 +63,10 @@
       <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
           <div class="mdl-layout__header-row">
-            <!--<button   class="mdl-layout-icon mdl-button mdl-js-button mdl-button--icon" id="logo_small">-->
-  <i style="position: absolute; left: 15px;" class="material-icons">receipt</i>
-<!--</button>-->
-            <button  style="position: absolute; left: 15px; display:none;" class="mdl-layout-icon mdl-button mdl-js-button mdl-button--icon" id="back_button" onclick="showDetails(null);">
-  <i class="material-icons">arrow_back</i>
-</button>
+            <i style="position: absolute; left: 15px;" class="material-icons" id="logo_small">receipt</i>
+            <button  style="position: absolute; left: 15px; display:none;" class="mdl-layout-icon mdl-button mdl-js-button mdl-button--icon" id="back_button" onclick="goBack()">
+              <i class="material-icons">arrow_back</i>
+            </button>
             <!-- Title -->
             <span class="mdl-layout-title" style="position: absolute; left: 50px;">SCANdal</span>
 
@@ -80,7 +78,7 @@
 
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                 for="demo-menu-lower-right">
-              <li class="mdl-menu__item">Credits</li>
+              <li class="mdl-menu__item" onclick="showCredits()">Credits</li>
             </ul>
 
           </div>
@@ -88,7 +86,7 @@
         <main class="mdl-layout__content">
           <div class="page-content">
             <!-- TAB CONTENT -->
-            <section id="tabs">
+          <section id="tabs">
               <!-- VOUCHER -->
               <style>
                 .demo-card-wide.mdl-card {
@@ -221,10 +219,10 @@
                 </div>
               </div>
             </div>
-            </section>
+          </section>
 
             <!-- DETAIL VIEW -->
-            <section id="details" style="display:none">
+          <section id="details" style="display:none">
               <!-- Header card -->
               <style>
               .demo-card-event.mdl-card {
@@ -296,13 +294,30 @@
               </tbody>
             </table>
 
-            </section>
+          </section>
+
+            <!-- CREDITS VIEW -->
+          <section id="credits" style="display:none">
+            <style>
+            .demo-list-item {
+              width: 100%;
+            }
+            </style>
+
+            <ul class="demo-list-item mdl-list">
+              <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                  <div>Icons made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+                </span>
+              </li>
+            </ul>
+          </section>
 
           </div>
         </main>
 
             <script>
-              var eligible = false; //Turn true to turn on coupon
+              var eligible = true; //Turn true to turn on coupon
 
               $( document ).ready(function() {
                 setInitialListeners();
@@ -319,17 +334,31 @@
                   $( this ).click(function() {
                     showDetails("demo");
                   });
-                  //console.log("SET.");
                 });
               }
 
               function showDetails(detail_id) {
                 populateDetails(detail_id);
-                //console.log("HEEEEEEEEEEEY BABY!");
-                $("#tabs").toggle();
-                $("#details").toggle();
-                $("#back_button").toggle();
-                $("#logo_small").toggle();
+                $("#tabs").hide();
+                $("#details").show();
+                $("#back_button").show();
+                $("#logo_small").hide();
+              }
+
+              function showCredits() {
+                $("#tabs").hide();
+                $("#details").hide();
+                $("#back_button").show();
+                $("#logo_small").hide();
+                $("#credits").show();
+              }
+
+              function goBack() {
+                $("#tabs").show();
+                $("#details").hide();
+                $("#back_button").hide();
+                $("#logo_small").show();
+                $("#credits").hide();
               }
             </script>
           </div>
