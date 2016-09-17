@@ -42,9 +42,21 @@ function getProductInfo(storeId, productId, index) {
 
         processedResponse.products[index] = filteredJson;
 
-        if(index == processedResponse.products.length - 1) { //last array element has been reached, looking up product information has been finished for this receipt
-          doDominiksStuff();
+        for(var h = 0; h < processedResponse.products.length; h++) {
+          if(processedResponse.products[h] == null) {
+            return;
+          }
         }
+
+        //product infos for all array elements have been loaded from api
+        if(index = processedResponse.products.length - 1) {
+            doDominiksStuff();
+        }
+
+        //OLD SOLUTION
+        // if(index == processedResponse.products.length - 1) { //last array element has been reached, looking up product information has been finished for this receipt
+        //   doDominiksStuff();
+        // }
       }
     }
   }
