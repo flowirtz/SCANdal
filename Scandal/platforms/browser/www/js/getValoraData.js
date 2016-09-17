@@ -22,7 +22,7 @@ function searchForProducts(scanditResponse) {
 
 function getProductInfo(storeId, productId, index) {
   console.log("got this: " + storeId + productId + index);
-  document.getElementById("infoGoesHere").innerHTML = "wow this works";
+  //document.getElementById("infoGoesHere").innerHTML = "wow this works";
 
   var request = new XMLHttpRequest();
 
@@ -33,7 +33,7 @@ function getProductInfo(storeId, productId, index) {
 
     if(request.readyState == 4) {
       if(request.status == 200 || request.status == 0) {
-        document.getElementById("infoGoesHere").innerHTML = request.responseText;
+        // document.getElementById("infoGoesHere").innerHTML = request.responseText;
         var returnedJson = JSON.parse(request.responseText);
 
         //map category id to natural-language-form category
