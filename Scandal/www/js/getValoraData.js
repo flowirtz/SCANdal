@@ -5,7 +5,7 @@ PW = 'mKw%VY<7.Yb8D!G-';
 function searchForProducts(scanditResponse) {
   //var scanditResponse = '{"store-id": "18406", "products": ["50819171", "76418976", "40111216", "84157072", "2050000668135", "5449000012203", "7610057001023", "5937", "4005975019817", "7640113614829", "8712561017831", "4005808425365"],  "total": "20.53"}'; //as given to me by Emanuel / Scandit
 
-  //var scanditResponseJson = JSON.parse(scanditResponse);
+  // var scanditResponseJson = JSON.parse(scanditResponse);
   var scanditResponseJson = scanditResponse;
   processedResponse = JSON.parse(JSON.stringify(scanditResponseJson));
 
@@ -74,8 +74,11 @@ function getProductInfo(storeId, productId, index) {
 
         //product infos for all array elements have been loaded from api
         if(index = processedResponse.products.length - 1) {
-            var storeNames = ["k kiosk Aeroport", "avec. Zürich Hbf.", "k kiosk Lyssbachpark"];
-            processedResponse.storename = storeNames[Math.floor(Math.random() * 3)];
+            var storeNames = ["K Kiosk", "Press und Books", "Avec Hauptbahnhof"];
+
+            var random = Math.floor(Math.random() * 3);
+            processedResponse.storename = storeNames[random];
+
             doDominiksStuff();
         }
 
