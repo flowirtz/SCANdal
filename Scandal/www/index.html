@@ -63,7 +63,7 @@
       <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
           <div class="mdl-layout__header-row">
-            <button class="mdl-layout-icon mdl-button mdl-js-button mdl-button--icon" style="display:none;" id="back_button">
+            <button class="mdl-layout-icon mdl-button mdl-js-button mdl-button--icon" style="display:none;" id="back_button" onclick="showDetails(null);">
   <i class="material-icons">arrow_back</i>
 </button>
             <!-- Title -->
@@ -74,6 +74,29 @@
           <div class="page-content">
             <!-- TAB CONTENT -->
             <section id="tabs">
+              <!-- VOUCHER -->
+              <style>
+                .demo-card-wide.mdl-card {
+                  width: 100%;
+                }
+                .demo-card-wide > .mdl-card__title {
+                  color: #fff;
+                  height: 176px;
+                  background: url('res/coupon/mycrossang.jpg') center / cover;
+                }
+                .demo-card-wide > .mdl-card__menu {
+                  color: #fff;
+                }
+              </style>
+              <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="coupon" style="display: none;">
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">&nbsp;<strong>20% OFF</strong></h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  Croissants: 20% off, only today.
+                </div>
+              </div>
+
             <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
               <div class="mdl-tabs__tab-bar">
                 <a href="#juli-panel" class="mdl-tabs__tab">Juli</a>
@@ -195,12 +218,16 @@
         </main>
 
             <script>
+              var eligible = false; //Turn true to turn on coupon
+
               $( document ).ready(function() {
                 setInitialListeners();
 
-                $("#back_button").click(function() {
-                  showDetails(null);
-                });
+                if(eligible) {
+                    $("#coupon").show();
+                }
+
+                populateOverview();
               });
 
               function setInitialListeners() {
@@ -208,24 +235,25 @@
                   $( this ).click(function() {
                     showDetails("demo");
                   });
-                  console.log("SET.");
+                  //console.log("SET.");
                 });
               }
 
-              function showDetails(caller_id) {
+              function showDetails(detail_id) {
+                populateDetails(detail_id);
+                //console.log("HEEEEEEEEEEEY BABY!");
                 $("#tabs").toggle();
                 $("#details").toggle();
                 $("#back_button").toggle();
               }
             </script>
-
-
           </div>
         </main>
       </div>
       <script type="text/javascript" src="cordova.js"></script>
       <script type="text/javascript" src="js/index.js"></script>
       <script type="text/javascript" src="js/database.js"></script>
+      <script type="text/javascript" src="js/populateWithData.js"></script>
 </body>
 
 </html>
