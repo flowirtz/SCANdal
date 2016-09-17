@@ -4,7 +4,7 @@ function fillDetailView(jsonfile) {
 
     $(parsedHTML).find("#d-title").text(jsonfile.storename);
     $(parsedHTML).find("#d-address").html("Z&uuml;rich HB<br>8001 Z&uuml;rich");
-    $(parsedHTML).find("#d-total").text(jsonfile.total);
+    $(parsedHTML).find("#d-total").text(jsonfile.total + " CHF");
 
     //Fill the fuckin table
     var products = "";
