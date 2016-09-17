@@ -56,13 +56,21 @@
                 DELETE TABLES
             </button>
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                    onclick="queryDB(readBuys);">
+                    onclick="readBuys(querySuccess);">
                 READ BUYS
+            </button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                    onclick="readItems(1, itemsRead);">
+                READ ITEMS
             </button>
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
                     onclick="queryDB(insertRow);">
                 INSERT
             </button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                    onclick="insertBuyData();">
+                DUMMY BUY
+            </button><br />
         </div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
