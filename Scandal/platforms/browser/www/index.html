@@ -57,45 +57,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-    <div class="app">
-        <h1>PhoneGap is &lt;3</h1>
-        <div id="deviceready">
-            
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                    onclick="queryDB(createTables);">
-                CREATE TABLES
-            </button><br />
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                    onclick="modifyDB(deleteTables);">
-                DELETE TABLES
-            </button>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                    onclick="readBuys(querySuccess);">
-                READ BUYS
-            </button>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                    onclick="readItems(1, itemsRead);">
-                READ ITEMS
-            </button>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                    onclick="queryDB(insertRow);">
-                INSERT
-            </button>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                    onclick="insertBuyData();">
-                DUMMY BUY
-            </button><br />
-        </div>
-    </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/database.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
-
-=======
   <div class="app">
     <div id="deviceready">
       <!-- Always shows a header, even in smaller screens. -->
@@ -115,113 +76,15 @@
             <section id="tabs">
             <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
               <div class="mdl-tabs__tab-bar">
-                <a href="#juli-panel" class="mdl-tabs__tab">Juli</a>
-                <a href="#august-panel" class="mdl-tabs__tab">August</a>
-                <a href="#september-panel" class="mdl-tabs__tab is-active">September</a>
+                <a href="#purchases-panel" id="purchases_tab" class="mdl-tabs__tab is-active">Purchases</a>
+                <a href="#ideas-panel" class="mdl-tabs__tab">Ideas</a>
               </div>
-              <!----------------------------------------------------------------->
-              <!-- JULI -->
-              <div class="mdl-tabs__panel" id="juli-panel">
-                <ul>
-                  <li>Eddard</li>
-                  <li>Catelyn</li>
-                  <li>Robb</li>
-                  <li>Sansa</li>
-                  <li>Brandon</li>
-                  <li>Arya</li>
-                  <li>Rickon</li>
-                </ul>
-              </div>
-              <!----------------------------------------------------------------->
-              <!-- AUGUST -->
-              <div class="mdl-tabs__panel" id="august-panel">
-                <div class="demo-list-action mdl-list unselectable">
-                  <!-- SONNTAG -->
-                  <div class="mdl-list__item day_title">
-                    <span class="mdl-list__item-primary-content">
-                      <b>Sonntag</b>, 18.
-                    </span>
-                    <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
-                  </div>
+                <div class="mdl-tabs__panel" id="purchases-panel">
+                    <div class="demo-list-action mdl-list unselectable" id="purchases">
+                    </div>
                 </div>
-              </div>
-              <!----------------------------------------------------------------->
-              <!-- SEPTEMBER -->
-              <div class="mdl-tabs__panel is-active month_panel" id="september-panel">
-                <!-- SONNTAG -->
-                <div class="demo-list-action mdl-list unselectable">
-                  <div class="mdl-list__item day_title">
-                    <span class="mdl-list__item-primary-content">
-                      <b>Sonntag</b>, 18.
-                    </span>
-                    <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
-                  </div>
-                  <div class="mdl-list__item buy_entry">
-                    <span class="mdl-list__item-primary-content">
-                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">D</span>
-                    <span>Ditsch</span>
-                    </span>
-                    <a class="mdl-list__item-secondary-action">1.70 €</a>
-                  </div>
-                  <div class="mdl-list__item buy_entry">
-                    <span class="mdl-list__item-primary-content">
-                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">k</span>
-                    <span>k-kiosk</span>
-                    </span>
-                    <a class="mdl-list__item-secondary-action">5.40 €</a>
-                  </div>
-                  <hr />
+                <div class="mdl-tabs__panel" id="ideas-panel">Hey, here are some cool products!</div>
                 </div>
-                <!-- SAMSTAG -->
-                <div class="demo-list-action mdl-list unselectable">
-                  <div class="mdl-list__item day_title">
-                    <span class="mdl-list__item-primary-content">
-                      <b>Samstag</b>, 17.
-                    </span>
-                    <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
-                  </div>
-                  <div class="mdl-list__item buy_entry">
-                    <span class="mdl-list__item-primary-content">
-                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">D</span>
-                    <span>Ditsch</span>
-                    </span>
-                    <a class="mdl-list__item-secondary-action">1.70 €</a>
-                  </div>
-                  <div class="mdl-list__item buy_entry">
-                    <span class="mdl-list__item-primary-content">
-                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">k</span>
-                    <span>k-kiosk</span>
-                    </span>
-                    <a class="mdl-list__item-secondary-action">5.40 €</a>
-                  </div>
-                  <hr />
-                </div>
-                <!-- FREITAG -->
-                <div class="demo-list-action mdl-list unselectable">
-                  <div class="mdl-list__item day_title">
-                    <span class="mdl-list__item-primary-content">
-                      <b>Freitag</b>, 16.
-                    </span>
-                    <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
-                  </div>
-                  <div class="mdl-list__item buy_entry">
-                    <span class="mdl-list__item-primary-content">
-                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">D</span>
-                    <span>Ditsch</span>
-                    </span>
-                    <a class="mdl-list__item-secondary-action">1.70 €</a>
-                  </div>
-                  <div class="mdl-list__item buy_entry">
-                    <span class="mdl-list__item-primary-content">
-                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">k</span>
-                    <span>k-kiosk</span>
-                    </span>
-                    <a class="mdl-list__item-secondary-action">5.40 €</a>
-                  </div>
-                  <hr />
-                </div>
-              </div>
-            </div>
             </section>
 
             <!-- DETAIL VIEW -->
@@ -234,12 +97,21 @@
         </main>
 
             <script>
+                var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
               $( document ).ready(function() {
                 setInitialListeners();
 
                 $("#back_button").click(function() {
                   showDetails(null);
                 });
+
+                db = window.openDatabase("db", "1.0", "SCANdal", 200000);
+                createTables();
+                populateOverview();
+
+                //insertBuyData();
+                
               });
 
               function setInitialListeners() {
@@ -256,6 +128,14 @@
                 $("#details").toggle();
                 $("#back_button").toggle();
               }
+
+              function createDay(day) {
+
+              }
+
+              function populateDetails(detail_id) {
+                  //TODO have fun. :/
+              }
             </script>
 
 
@@ -265,10 +145,48 @@
       <script type="text/javascript" src="cordova.js"></script>
       <script type="text/javascript" src="js/index.js"></script>
       <script type="text/javascript" src="js/database.js"></script>
+      <!--<script type="text/javascript" src="js/scan.js"></script>-->
       <script type="text/javascript">
-        //app.initialize();
+          //app.initialize();
+          function populateOverview() {
+              //TODO haha
+              //Steps:
+
+              //1. GET data
+              code = '';
+
+              readBuys(function (tx, results) {
+                  lastDay = 0;
+                  code += '';
+                  for (i = 0; i < results.rows.length; i++) {
+                      p = results.rows.item(i);
+                      datum = new Date(p.date);
+                      curDay = datum.getDate() + datum.getMonth() + datum.getYear();
+                      if (curDay != lastDay) {
+                          code += (lastDay != 0) ? '<hr />' : '';
+                          lastDay = curDay;
+
+                          code += '<div class="mdl-list__item day_title">' +
+                                  '<span class="mdl-list__item-primary-content">' +
+                                  '<b>' + days[datum.getDay()] + '</b>, ' + datum.getDate() + '.' +
+                                  '</span>' +
+                                  '<a class="mdl-list__item-secondary-action"><b>' + p.dayTotal + '</b></a></div>';
+                      }
+
+                      code += '<div class="mdl-list__item buy_entry">' +
+                              '<span class="mdl-list__item-primary-content">' +
+                              '<span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">' + p.storename.charAt(0) + '</span>' +
+                              '<span>' + p.storename + '</span>' +
+                              '</span>' +
+                              '<a class="mdl-list__item-secondary-action">' + (Math.round(p.total * 100) / 100) + ' €</a></div>';
+                  }
+                  code += '';
+                  $('#purchases').append(code);
+                  setInitialListeners();
+                  $('#purchases_panel').show();
+              });
+          }
       </script>
->>>>>>> master
 </body>
 
 </html>
