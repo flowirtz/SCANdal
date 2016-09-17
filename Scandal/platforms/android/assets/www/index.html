@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
     Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
 
@@ -22,13 +22,13 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <!-- Good default declaration:
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+  <!-- Good default declaration:
     * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
     * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
     * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
@@ -36,97 +36,199 @@
         * Enable eval(): add 'unsafe-eval' to default-src
     * Create your own at http://cspisawesome.com
     -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
-    <link rel="stylesheet" href="mdl/material.min.css">
-    <script src="mdl/material.min.js"></script>
-    <script src="js/scan.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>SCANdal</title>
+  <link rel="stylesheet" href="mdl/material.min.css">
+  <script src="mdl/material.min.js"></script>
+  <script src="js/jquery-3.1.0.min.js"></script>
+  <link rel="stylesheet" href="css/index.css">
+  <!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
+  <title>SCANdal</title>
+  <style>
+    .unselectable {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="app">
-        <div id="deviceready">
-          <!-- Always shows a header, even in smaller screens. -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-<header class="mdl-layout__header">
-  <div class="mdl-layout__header-row">
-    <!-- Title -->
-    <span class="mdl-layout-title">SCANdal</span>
+  <div class="app">
+    <div id="deviceready">
+      <!-- Always shows a header, even in smaller screens. -->
+      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+          <div class="mdl-layout__header-row">
+            <button class="mdl-layout-icon mdl-button mdl-js-button mdl-button--icon" style="display:none;" id="back_button">
+  <i class="material-icons">arrow_back</i>
+</button>
+            <!-- Title -->
+            <span class="mdl-layout-title">SCANdal</span>
+          </div>
+        </header>
+        <main class="mdl-layout__content">
+          <div class="page-content">
+            <!-- TAB CONTENT -->
+            <section id="tabs">
+            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+              <div class="mdl-tabs__tab-bar">
+                <a href="#juli-panel" class="mdl-tabs__tab">Juli</a>
+                <a href="#august-panel" class="mdl-tabs__tab">August</a>
+                <a href="#september-panel" class="mdl-tabs__tab is-active">September</a>
+              </div>
+              <!----------------------------------------------------------------->
+              <!-- JULI -->
+              <div class="mdl-tabs__panel" id="juli-panel">
+                <ul>
+                  <li>Eddard</li>
+                  <li>Catelyn</li>
+                  <li>Robb</li>
+                  <li>Sansa</li>
+                  <li>Brandon</li>
+                  <li>Arya</li>
+                  <li>Rickon</li>
+                </ul>
+              </div>
+              <!----------------------------------------------------------------->
+              <!-- AUGUST -->
+              <div class="mdl-tabs__panel" id="august-panel">
+                <div class="demo-list-action mdl-list unselectable">
+                  <!-- SONNTAG -->
+                  <div class="mdl-list__item day_title">
+                    <span class="mdl-list__item-primary-content">
+                      <b>Sonntag</b>, 18.
+                    </span>
+                    <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
+                  </div>
+                </div>
+              </div>
+              <!----------------------------------------------------------------->
+              <!-- SEPTEMBER -->
+              <div class="mdl-tabs__panel is-active month_panel" id="september-panel">
+                <!-- SONNTAG -->
+                <div class="demo-list-action mdl-list unselectable">
+                  <div class="mdl-list__item day_title">
+                    <span class="mdl-list__item-primary-content">
+                      <b>Sonntag</b>, 18.
+                    </span>
+                    <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
+                  </div>
+                  <div class="mdl-list__item buy_entry">
+                    <span class="mdl-list__item-primary-content">
+                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">D</span>
+                    <span>Ditsch</span>
+                    </span>
+                    <a class="mdl-list__item-secondary-action">1.70 €</a>
+                  </div>
+                  <div class="mdl-list__item buy_entry">
+                    <span class="mdl-list__item-primary-content">
+                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">k</span>
+                    <span>k-kiosk</span>
+                    </span>
+                    <a class="mdl-list__item-secondary-action">5.40 €</a>
+                  </div>
+                  <hr />
+                </div>
+                <!-- SAMSTAG -->
+                <div class="demo-list-action mdl-list unselectable">
+                  <div class="mdl-list__item day_title">
+                    <span class="mdl-list__item-primary-content">
+                      <b>Samstag</b>, 17.
+                    </span>
+                    <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
+                  </div>
+                  <div class="mdl-list__item buy_entry">
+                    <span class="mdl-list__item-primary-content">
+                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">D</span>
+                    <span>Ditsch</span>
+                    </span>
+                    <a class="mdl-list__item-secondary-action">1.70 €</a>
+                  </div>
+                  <div class="mdl-list__item buy_entry">
+                    <span class="mdl-list__item-primary-content">
+                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">k</span>
+                    <span>k-kiosk</span>
+                    </span>
+                    <a class="mdl-list__item-secondary-action">5.40 €</a>
+                  </div>
+                  <hr />
+                </div>
+                <!-- FREITAG -->
+                <div class="demo-list-action mdl-list unselectable">
+                  <div class="mdl-list__item day_title">
+                    <span class="mdl-list__item-primary-content">
+                      <b>Freitag</b>, 16.
+                    </span>
+                    <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
+                  </div>
+                  <div class="mdl-list__item buy_entry">
+                    <span class="mdl-list__item-primary-content">
+                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">D</span>
+                    <span>Ditsch</span>
+                    </span>
+                    <a class="mdl-list__item-secondary-action">1.70 €</a>
+                  </div>
+                  <div class="mdl-list__item buy_entry">
+                    <span class="mdl-list__item-primary-content">
+                      <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">k</span>
+                    <span>k-kiosk</span>
+                    </span>
+                    <a class="mdl-list__item-secondary-action">5.40 €</a>
+                  </div>
+                  <hr />
+                </div>
+              </div>
+            </div>
+            </section>
 
-  </div>
-</header>
-<main class="mdl-layout__content">
-  <div class="page-content">
-    <!-- Your content goes here -->
-    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-  <div class="mdl-tabs__tab-bar">
-      <a href="#juli-panel" class="mdl-tabs__tab">Juli</a>
-      <a href="#august-panel" class="mdl-tabs__tab">August</a>
-      <a href="#september-panel" class="mdl-tabs__tab is-active">September</a>
-  </div>
+            <!-- DETAIL VIEW -->
+            <section id="details" style="display:none">
+              <h2>Hello World!</h2>
 
-  <div class="mdl-tabs__panel" id="juli-panel">
+            </section>
 
-    <ul>
-      <li>Eddard</li>
-      <li>Catelyn</li>
-      <li>Robb</li>
-      <li>Sansa</li>
-      <li>Brandon</li>
-      <li>Arya</li>
-      <li>Rickon</li>
-    </ul>
-  </div>
-  <div class="mdl-tabs__panel" id="august-panel">
-    <ul>
-      <li>Tywin</li>
-      <li>Cersei</li>
-      <li>Jamie</li>
-      <li>Tyrion</li>
-    </ul>
-  </div>
-  <div class="mdl-tabs__panel is-active" id="september-panel">
+          </div>
+        </main>
+
+            <script>
+              $( document ).ready(function() {
+                setInitialListeners();
+
+                $("#back_button").click(function() {
+                  showDetails(null);
+                });
+              });
+
+              function setInitialListeners() {
+                $( ".buy_entry" ).each(function( index ) {
+                  $( this ).click(function() {
+                    showDetails("demo");
+                  });
+                  console.log("SET.");
+                });
+              }
+
+              function showDetails(caller_id) {
+                $("#tabs").toggle();
+                $("#details").toggle();
+                $("#back_button").toggle();
+              }
+            </script>
 
 
-
-    <!-- HERE IT GOES LOOSE!!!-->
-    <div class="demo-list-action mdl-list">
-
-      <div class="mdl-list__item">
-        <span class="mdl-list__item-primary-content">
-          <span>Montag</span>
-        </span>
-        <a class="mdl-list__item-secondary-action" href="#" onclick="scanning();">7.10</a>
+          </div>
+        </main>
       </div>
-  <div class="mdl-list__item">
-    <span class="mdl-list__item-primary-content">
-      <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">D</span>
-      <span>Ditsch</span>
-    </span>
-    <a class="mdl-list__item-secondary-action" href="#">1.70€</a>
-  </div>
-  <div class="mdl-list__item">
-    <span class="mdl-list__item-primary-content">
-      <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">k</span>
-      <span>k-kiosk</span>
-    </span>
-    <a class="mdl-list__item-secondary-action" href="#">5.40€</a>
-  </div>
-</div>
-  </div>
-</div>
-  </div>
-</main>
-</div>
-        </div>
-    </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
+      <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
+      <script type="text/javascript" src="js/database.js"></script>
+      <script type="text/javascript">
+        //app.initialize();
+      </script>
 </body>
 
 </html>
