@@ -40,7 +40,9 @@
 
   <link rel="stylesheet" href="mdl/material.min.css">
   <script src="mdl/material.min.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="js/jquery-3.1.0.min.js"></script>
+  <link rel="stylesheet" href="css/index.css">
+  <!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
   <title>SCANdal</title>
   <style>
     .unselectable {
@@ -61,6 +63,9 @@
       <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
           <div class="mdl-layout__header-row">
+            <button class="mdl-layout-icon mdl-button mdl-js-button mdl-button--icon" style="display:none;" id="back_button">
+  <i class="material-icons">arrow_back</i>
+</button>
             <!-- Title -->
             <span class="mdl-layout-title">SCANdal</span>
           </div>
@@ -179,18 +184,38 @@
               </div>
             </div>
             </section>
-          </div>
-        </main>
 
             <!-- DETAIL VIEW -->
             <section id="details" style="display:none">
               <h2>Hello World!</h2>
+
             </section>
 
+          </div>
+        </main>
+
             <script>
-              function showDetails() {
-                  document.getElementById("tabs").style.display = "none";
-                  document.getElementById("details").style.display = "block";
+              $( document ).ready(function() {
+                setInitialListeners();
+
+                $("#back_button").click(function() {
+                  showDetails(null);
+                });
+              });
+
+              function setInitialListeners() {
+                $( ".buy_entry" ).each(function( index ) {
+                  $( this ).click(function() {
+                    showDetails("demo");
+                  });
+                  console.log("SET.");
+                });
+              }
+
+              function showDetails(caller_id) {
+                $("#tabs").toggle();
+                $("#details").toggle();
+                $("#back_button").toggle();
               }
             </script>
 
@@ -201,7 +226,7 @@
       <script type="text/javascript" src="cordova.js"></script>
       <script type="text/javascript" src="js/index.js"></script>
       <script type="text/javascript">
-        app.initialize();
+        //app.initialize();
       </script>
 </body>
 
