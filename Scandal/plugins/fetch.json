@@ -1,4 +1,12 @@
 {
+    "com.mirasense.scanditsdk.plugin": {
+        "source": {
+            "type": "local",
+            "path": "C:\\users\\emanuel\\desktop\\hackzurich\\scandit"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
     "cordova-plugin-battery-status": {
         "source": {
             "type": "registry",
@@ -163,14 +171,6 @@
         "source": {
             "type": "registry",
             "id": "cordova-plugin-whitelist@~1.2.1"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "com.mirasense.scanditsdk.plugin": {
-        "source": {
-            "type": "local",
-            "path": "C:\\Users\\Emanuel\\Desktop\\HackZurich\\scandit"
         },
         "is_top_level": true,
         "variables": {}
