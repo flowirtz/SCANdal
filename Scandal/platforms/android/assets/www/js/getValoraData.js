@@ -98,4 +98,6 @@ function getProductInfo(storeId, productId, index) {
 
 function doDominiksStuff() {
   console.log("this is it:" + JSON.stringify(processedResponse));
+
+  insertBuy(processedResponse, function(id) { console.log(id) });
 }
