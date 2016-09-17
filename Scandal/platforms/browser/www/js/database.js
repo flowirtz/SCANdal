@@ -1,23 +1,29 @@
-﻿document.addEventListener("deviceready", onDeviceReady, false);
-
+lastBuyId = null;
 curData = null;
 buyCallback = null;
 
-function deleteTables() {
-    db.transaction(function (tx) {
-        tx.executeSql('DROP TABLE IF EXISTS BUY');
-        tx.executeSql('DROP TABLE IF EXISTS ITEM');
-    }, errorCB, successCB);   
+function modifyDB(trans) {
+    if (db != undefined) {
+        db.transaction(trans, errorCB, successCB);
+    }
 }
 
-function createTables() {
-    db.transaction(function (tx) {
-        tx.executeSql('CREATE TABLE IF NOT EXISTS BUY (id INTEGER PRIMARY KEY NOT NULL, storename, date DATETIME, store_id INT, total FLOAT)');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS ITEM (id INTEGER PRIMARY KEY NOT NULL, buy_id, name, store_id, item_group, ean INT, price FLOAT)');
-    }, errorCB);
-
-    return 1;
+function queryDB(trans) {
+    if (db != undefined) {
+        db.transaction(trans, errorCB);
+    }
 }
+
+function deleteTables(tx) {
+    tx.executeSql('DROP TABLE IF EXISTS BUY');
+    tx.executeSql('DROP TABLE IF EXISTS ITEM');
+}
+
+function createTables(tx) {
+    tx.executeSql('CREATE TABLE IF NOT EXISTS BUY (id INTEGER PRIMARY KEY NOT NULL, date DATETIME, store_id INT, total FLOAT)');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS ITEM (id INTEGER PRIMARY KEY NOT NULL, buy_id, name, store_id, item_group, ean INT, price FLOAT)');
+}
+
 
 function insertBuy(data, callback) {
     curData = data;
@@ -25,7 +31,7 @@ function insertBuy(data, callback) {
 
     db.transaction(function (tx) {
         console.log(JSON.stringify(data));
-        tx.executeSql('INSERT INTO BUY (date, store_id, storename, total) VALUES (?, ?, ?,?)', [new Date(), data.store_id, data.storename, data.total], insertBuyItems, errorCB);
+        tx.executeSql('INSERT INTO BUY (date, store_id, total) VALUES (?, ?, ?)', [new Date(), data.store_id, data.total], insertBuyItems, errorCB);
     }, errorCB);
 }
 
@@ -39,8 +45,6 @@ function insertBuyItems(tx, results) {
     }
     buyCallback(results.insertId);
 }
-
-
 
 function readBuys(callback) {
     db.transaction(function (tx) {
@@ -80,7 +84,7 @@ function getBuys() {
 // dummy data
 
 function insertBuyData() {
-    myData = JSON.parse('{"store_id": "18406","storename": "Moin", "products": [{"name": "HARIBO GOLDBAEREN 200G BTL.","price": "3.25","retail_store_id": "18406","item_group": "F02022"},{"name": "ok.- ICE TEA ZITRONE 50 CL PET","price": "1.5","retail_store_id": "18406","item_group": "F08013"},{"name": "STARBUCKS TO GO","price": "4.7","retail_store_id": "18406","item_group": "F08071"},{"name": "CROISSANT FRANC.","price": "1.45","retail_store_id": "18406","item_group": "F06021"},{"name": "2-STRANG BUTTERZOEPFLI TK 100G","price": "1.65","retail_store_id": "18406","item_group": "F06022"}],"total": "20.53"}');
+    myData = JSON.parse('{"store_id": "18406","products": [{"name": "HARIBO GOLDBAEREN 200G BTL.","price": "3.25","retail_store_id": "18406","item_group": "F02022"},{"name": "ok.- ICE TEA ZITRONE 50 CL PET","price": "1.5","retail_store_id": "18406","item_group": "F08013"},{"name": "STARBUCKS TO GO","price": "4.7","retail_store_id": "18406","item_group": "F08071"},{"name": "CROISSANT FRANC.","price": "1.45","retail_store_id": "18406","item_group": "F06021"},{"name": "2-STRANG BUTTERZOEPFLI TK 100G","price": "1.65","retail_store_id": "18406","item_group": "F06022"}],"total": "20.53"}');
     insertBuy(myData, buyInserted);
 }
 
@@ -101,9 +105,15 @@ function insertItems(tx, results) {
     }
 }
 
+// Wait for PhoneGap to load
+//
+document.addEventListener("deviceready", onDeviceReady, false);
+
+// PhoneGap is ready
+//
 function onDeviceReady() {
     db = window.openDatabase("db", "1.0", "SCANdal", 200000);
-    createTables();
+    queryDB(createTables);
 }
 
 // Transaction error callback
