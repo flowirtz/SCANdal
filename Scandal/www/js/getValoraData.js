@@ -2,8 +2,8 @@ USER = 'HackZurich';
 PW = 'mKw%VY<7.Yb8D!G-';
 
 //this function's arguments are 1. what is hardcoded as scanditResponse now + 2. a callback function from florian, which starts displaying the processedinformation
-function searchForProducts() {
-  var scanditResponse = '{"store-id": "18406", "products": ["50819171", "76418976", "40111216", "84157072", "2050000668135", "5449000012203", "7610057001023", "5937", "4005975019817", "7640113614829", "8712561017831", "4005808425365"],  "total": "20.53"}'; //as given to me by Emanuel / Scandit
+function searchForProducts(scanditResponse) {
+  //var scanditResponse = '{"store-id": "18406", "products": ["50819171", "76418976", "40111216", "84157072", "2050000668135", "5449000012203", "7610057001023", "5937", "4005975019817", "7640113614829", "8712561017831", "4005808425365"],  "total": "20.53"}'; //as given to me by Emanuel / Scandit
 
   var scanditResponseJson = JSON.parse(scanditResponse);
 
