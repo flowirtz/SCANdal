@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="ScanditBarcodeScanner-">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/build/intermediates/exploded-aar/ScanditBarcodeScanner/res" />
       <root url="jar://$PROJECT_DIR$/build/intermediates/exploded-aar/ScanditBarcodeScanner/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/build/intermediates/exploded-aar/ScanditBarcodeScanner/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
