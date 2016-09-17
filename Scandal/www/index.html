@@ -468,7 +468,7 @@
                                   '<span class="mdl-list__item-primary-content">' +
                                   '<b>' + days[datum.getDay()] + '</b>, ' + datum.getDate() + '.' +
                                   '</span>' +
-                                  '<a class="mdl-list__item-secondary-action"><b>' + p.daily + ' €</b></a></div>';
+                                  '<a class="mdl-list__item-secondary-action"><b>' + Math.round(p.daily * 100) / 100 + ' €</b></a></div>';
                       }
 
                       code += '<div class="mdl-list__item buy_entry">' +
