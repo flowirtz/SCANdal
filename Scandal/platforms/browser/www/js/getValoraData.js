@@ -60,7 +60,7 @@ function getProductInfo(storeId, productId, index) {
             break;
         }
 
-        var filteredJson = JSON.parse('{"name": "' + returnedJson.name + '", "price": "' + returnedJson.current_price.price + '", "retail_store_id": "' + storeId + '", "item_group": "' + returnedJson.item_group + '"}');
+        var filteredJson = JSON.parse('{"ean": "' + productId + '", "name": "' + returnedJson.name + '", "price": "' + returnedJson.current_price.price + '", "retail_store_id": "' + storeId + '", "item_group": "' + returnedJson.item_group + '"}');
 
         console.log(JSON.stringify(filteredJson)); //result for current productid
 
