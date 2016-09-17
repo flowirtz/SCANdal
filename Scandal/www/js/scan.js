@@ -1,6 +1,6 @@
 
 function scanning(){
-
+	console.log("HEY");
 	Scandit.License.setAppKey("ptxGMCdm5Miis76+JubgFp25R5G2tkNfqTwjl7EWg0Q");
 	var settings = new Scandit.ScanSettings();
 	settings.setSymbologyEnabled(Scandit.Barcode.Symbology.EAN13, true);
