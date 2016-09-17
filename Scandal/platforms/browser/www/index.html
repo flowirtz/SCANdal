@@ -41,19 +41,83 @@
     <link rel="stylesheet" href="mdl/material.min.css">
     <script src="mdl/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>Hello World</title>
+    <title>SCANdal</title>
 </head>
 
 <body>
     <div class="app">
-        <h1>PhoneGap is ?</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">LETS GET READY!!!</p>
-            <!-- Accent-colored raised button with ripple -->
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                Button
-              </button>
+        <div id="deviceready">
+          <!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<header class="mdl-layout__header">
+  <div class="mdl-layout__header-row">
+    <!-- Title -->
+    <span class="mdl-layout-title">SCANdal</span>
+
+  </div>
+</header>
+<main class="mdl-layout__content">
+  <div class="page-content">
+    <!-- Your content goes here -->
+    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#juli-panel" class="mdl-tabs__tab">Juli</a>
+      <a href="#august-panel" class="mdl-tabs__tab">August</a>
+      <a href="#september-panel" class="mdl-tabs__tab is-active">September</a>
+  </div>
+
+  <div class="mdl-tabs__panel" id="juli-panel">
+    <ul>
+      <li>Eddard</li>
+      <li>Catelyn</li>
+      <li>Robb</li>
+      <li>Sansa</li>
+      <li>Brandon</li>
+      <li>Arya</li>
+      <li>Rickon</li>
+    </ul>
+  </div>
+  <div class="mdl-tabs__panel" id="august-panel">
+    <ul>
+      <li>Tywin</li>
+      <li>Cersei</li>
+      <li>Jamie</li>
+      <li>Tyrion</li>
+    </ul>
+  </div>
+  <div class="mdl-tabs__panel is-active" id="september-panel">
+
+
+
+    <!-- HERE IT GOES LOOSE!!!-->
+    <div class="demo-list-action mdl-list">
+
+      <div class="mdl-list__item">
+        <span class="mdl-list__item-primary-content">
+          <span>Montag</span>
+        </span>
+        <a class="mdl-list__item-secondary-action" href="#">7.10</a>
+      </div>
+  <div class="mdl-list__item">
+    <span class="mdl-list__item-primary-content">
+      <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">D</span>
+      <span>Ditsch</span>
+    </span>
+    <a class="mdl-list__item-secondary-action" href="#">1.70€</a>
+  </div>
+  <div class="mdl-list__item">
+    <span class="mdl-list__item-primary-content">
+      <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">k</span>
+      <span>k-kiosk</span>
+    </span>
+    <a class="mdl-list__item-secondary-action" href="#">5.40€</a>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</main>
+</div>
         </div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
