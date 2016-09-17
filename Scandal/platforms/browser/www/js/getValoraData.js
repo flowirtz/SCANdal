@@ -3,7 +3,7 @@ PW = 'mKw%VY<7.Yb8D!G-';
 
 //this function's arguments are 1. what is hardcoded as scanditResponse now + 2. a callback function from florian, which starts displaying the processedinformation
 function searchForProducts() {
-  var scanditResponse = '{"store-id": "18406", "products": ["9002975301268", "7610469295645", "2050000719073", "2050000771606", "5937"],  "total": "20.53"}'; //as given to me by Emanuel / Scandit
+  var scanditResponse = '{"store-id": "18406", "products": ["50819171", "76418976", "40111216", "84157072", "2050000668135", "5449000012203", "7610057001023", "5937", "4005975019817", "7640113614829", "8712561017831", "4005808425365"],  "total": "20.53"}'; //as given to me by Emanuel / Scandit
 
   var scanditResponseJson = JSON.parse(scanditResponse);
 
@@ -35,6 +35,30 @@ function getProductInfo(storeId, productId, index) {
       if(request.status == 200 || request.status == 0) {
         document.getElementById("infoGoesHere").innerHTML = request.responseText;
         var returnedJson = JSON.parse(request.responseText);
+
+        //map category id to natural-language-form category
+        switch(returnedJson.item_group) {
+          case "F02012":
+          case "F01022":
+            returnedJson.item_group = "Sweets";
+            break;
+          case "N11014":
+          case "T01014":
+            returnedJson.item_group = "Tobacco";
+            break;
+          case "F08012":
+          case "F08016":
+            returnedJson.item_group = "Non-Alcoholic Beverages";
+            break;
+          case "F06022":
+          case "F20165":
+          case "F06012":
+            returnedJson.item_group = "Bakery Goods";
+            break;
+          case "N12012":
+            returnedJson.item_group = "Cosmetics";
+            break;
+        }
 
         var filteredJson = JSON.parse('{"name": "' + returnedJson.name + '", "price": "' + returnedJson.current_price.price + '", "retail_store_id": "' + storeId + '", "item_group": "' + returnedJson.item_group + '"}');
 
