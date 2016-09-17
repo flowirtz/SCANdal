@@ -19,6 +19,8 @@ function createTables() {
     return 1;
 }
 
+
+
 function insertBuy(data, callback) {
     curData = data;
     buyCallback = callback;
@@ -50,6 +52,22 @@ function readBuys(callback) {
 function readItems(buy_id, callback) {
     db.transaction(function (tx) {
         tx.executeSql('SELECT I.* FROM ITEM I WHERE buy_id = ?', [buy_id], callback, errorCB);
+    }, errorCB);
+}
+
+
+function getGroups(callback) {
+    db.transaction(function (tx) {
+        tx.executeSql('SELECT item_group, SUM(price) AS total FROM ITEM GROUP BY item_group ORDER BY SUM(price) DESC LIMIT 5', [], function (t, res) {
+            result = "{";
+            for (i = 0; i < res.rows.length; i++) {
+                result += (i > 0) ? ', ' : '';
+                result += '"' + res.rows.item(i).item_group + '": ' + res.rows.item(i).total;
+            }
+            result += "}";
+            console.log(result);
+            callback(JSON.parse(result));
+        });
     }, errorCB);
 }
 
