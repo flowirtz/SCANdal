@@ -170,7 +170,7 @@
     "com.mirasense.scanditsdk.plugin": {
         "source": {
             "type": "local",
-            "path": "C:\\Users\\Emanuel\\Desktop\\Hackzurich\\scandit"
+            "path": "C:\\Users\\Emanuel\\Desktop\\HackZurich\\scandit"
         },
         "is_top_level": true,
         "variables": {}
