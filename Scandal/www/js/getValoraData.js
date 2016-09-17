@@ -40,6 +40,7 @@ function getProductInfo(storeId, productId, index) {
         switch(returnedJson.item_group) {
           case "F02012":
           case "F01022":
+          case "F02022":
             returnedJson.item_group = "Sweets";
             break;
           case "N11014":
@@ -48,6 +49,8 @@ function getProductInfo(storeId, productId, index) {
             break;
           case "F08012":
           case "F08016":
+          case "F08013":
+          case "F08071":
             returnedJson.item_group = "Non-Alcoholic Beverages";
             break;
           case "F06022":
