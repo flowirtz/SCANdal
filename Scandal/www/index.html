@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
     Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
 
@@ -163,81 +163,19 @@
                   <!----------------------------------------------------------------->
                   <!-- SEPTEMBER -->
                   <div class="mdl-tabs__panel is-active month_panel" id="september-panel">
-                    <!-- SONNTAG -->
-                    <div class="demo-list-action mdl-list unselectable">
-                      <div class="mdl-list__item day_title">
-                        <span class="mdl-list__item-primary-content">
-                          <b>Sunday</b>, 18.
-                        </span>
-                        <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
-                      </div>
-                      <div class="mdl-list__item buy_entry">
-                        <span class="mdl-list__item-primary-content">
-                          <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">D</span>
-                        <span>Ditsch</span>
-                        </span>
-                        <a class="mdl-list__item-secondary-action">1.70 €</a>
-                      </div>
-                      <div class="mdl-list__item buy_entry">
-                        <span class="mdl-list__item-primary-content">
-                          <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">k</span>
-                        <span>k-kiosk</span>
-                        </span>
-                        <a class="mdl-list__item-secondary-action">5.40 €</a>
-                      </div>
-                      <hr />
-                    </div>
-                    <!-- SAMSTAG -->
-                    <div class="demo-list-action mdl-list unselectable">
-                      <div class="mdl-list__item day_title">
-                        <span class="mdl-list__item-primary-content">
-                          <b>Saturday</b>, 17.
-                        </span>
-                        <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
-                      </div>
-                      <div class="mdl-list__item buy_entry">
-                        <span class="mdl-list__item-primary-content">
-                          <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">D</span>
-                        <span>Ditsch</span>
-                        </span>
-                        <a class="mdl-list__item-secondary-action">1.70 €</a>
-                      </div>
-                      <div class="mdl-list__item buy_entry">
-                        <span class="mdl-list__item-primary-content">
-                          <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">k</span>
-                        <span>k-kiosk</span>
-                        </span>
-                        <a class="mdl-list__item-secondary-action">5.40 €</a>
-                      </div>
-                      <hr />
-                    </div>
-                    <!-- FREITAG -->
-                    <div class="demo-list-action mdl-list unselectable">
-                      <div class="mdl-list__item day_title">
-                        <span class="mdl-list__item-primary-content">
-                          <b>Friday</b>, 16.
-                        </span>
-                        <a class="mdl-list__item-secondary-action"><b>7.10 €</b></a>
-                      </div>
-                      <div class="mdl-list__item buy_entry">
-                        <span class="mdl-list__item-primary-content">
-                          <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">D</span>
-                        <span>Ditsch</span>
-                        </span>
-                        <a class="mdl-list__item-secondary-action">1.70 €</a>
-                      </div>
-                      <div class="mdl-list__item buy_entry">
-                        <span class="mdl-list__item-primary-content">
-                          <span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">k</span>
-                        <span>k-kiosk</span>
-                        </span>
-                        <a class="mdl-list__item-secondary-action">5.40 €</a>
-                      </div>
-                      <hr />
+                    <div id="monthview">
+                        </div>
+                        <div class="mdl-list__item day_title">
+                            <span class="mdl-list__item-primary-content">
+                                <b>Statistiken</b>
+                            </span>
+                        </div>
+                        <div class="ct-chart"></div>
                     </div>
                   </div>
+                    
                 </div>
-
+                
                 <button style="position: fixed; bottom:  24px; right: 24px;" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" onclick="scanning();">
                     <i class="material-icons">add</i>
 
@@ -390,6 +328,7 @@
                 db = window.openDatabase("db", "1.0", "SCANdal", 200000);
                 createTables();
                 populateOverview();
+                drawStats();
 
                 //insertBuyData();
               });
@@ -435,6 +374,55 @@
                 $("#credits").hide();
               }
 
+              function drawStats() {
+                  // var mock = {sweets: 4.59, tobacco: 4.99, non_alcoholic_beverages: 9.89, bakery_goods: 5.78, cosmetics: 13.99};
+                  getGroups(function (res) {
+                      var series = [res.groups.length];
+                      var labels = [res.groups.length];
+                      for (i = 0; i < res.groups.length; i++) {
+                          series[i] = res.groups[i].total;
+                          labels[i] = res.groups[i].name;
+                          console.log(res.groups[i]);
+
+                      }
+                      //var sum = mock.sweets + mock.tobacco + mock.non_alcoholic_beverages + mock.bakery_goods + mock.cosmetics;
+
+                      //var fractions = [mock.sweets / sum, mock.tobacco / sum, mock.non_alcoholic_beverages / sum, mock.bakery_goods / sum, mock.cosmetics / sum];
+
+                      //var percentages = new Array(fractions.length);
+
+                      //for(var i = 0; i < percentages.length; i++) {
+                      //  percentages[i] = Math.round(fractions[i] * 100) + '%';
+                      //}
+
+                      var colors = ["#FF00FF", "000000", "#0000CD", "#F4A460", "#FF0000"];
+
+                      // var myLabels = ["Sweets", "Tobacco", "Non Alcoholic Beverages", "Bakery Goods", "Cosmetics"];
+
+                      var data = {
+                          series: series,
+                          labels: labels
+                      };
+
+                      var options = {
+                          donut: true,
+                          donutWidth: '42%',
+                          showLabel: true,
+                          labelPosition: 'outside'
+                      };
+
+                      new Chartist.Pie('.ct-chart', data, options);
+
+                  });
+                  
+              }
+
+          </script>
+          <script src="bower_components/chartist/dist/chartist.min.js"></script>
+          <link href="bower_components/chartist/dist/chartist.min.css" rel="stylesheet" type="text/css" />
+          <script>
+
+   
           </script>
           </div>
       </div>
@@ -463,7 +451,7 @@
                                   '<span class="mdl-list__item-primary-content">' +
                                   '<b>' + days[datum.getDay()] + '</b>, ' + datum.getDate() + '.' +
                                   '</span>' +
-                                  '<a class="mdl-list__item-secondary-action"><b>' + p.dayTotal + '</b></a></div>';
+                                  '<a class="mdl-list__item-secondary-action"><b>' + p.daily + ' €</b></a></div>';
                       }
 
                       code += '<div class="mdl-list__item buy_entry">' +
@@ -474,9 +462,8 @@
                               '<a class="mdl-list__item-secondary-action">' + (Math.round(p.total * 100) / 100) + ' €</a></div>';
                   }
                   code += '';
-                  $('#purchases').append(code);
+                  $('#monthview').append(code);
                   setInitialListeners();
-                  $('#purchases_panel').show();
               });
           }
       </script>
