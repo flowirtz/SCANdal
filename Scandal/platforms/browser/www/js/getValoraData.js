@@ -22,7 +22,7 @@ function searchForProducts(scanditResponse) {
 
 function getProductInfo(storeId, productId, index) {
   console.log("got this: " + storeId + productId + index);
-  document.getElementById("infoGoesHere").innerHTML = "wow this works";
+  //document.getElementById("infoGoesHere").innerHTML = "wow this works";
 
   var request = new XMLHttpRequest();
 
@@ -33,7 +33,7 @@ function getProductInfo(storeId, productId, index) {
 
     if(request.readyState == 4) {
       if(request.status == 200 || request.status == 0) {
-        document.getElementById("infoGoesHere").innerHTML = request.responseText;
+        // document.getElementById("infoGoesHere").innerHTML = request.responseText;
         var returnedJson = JSON.parse(request.responseText);
 
         //map category id to natural-language-form category
@@ -60,7 +60,7 @@ function getProductInfo(storeId, productId, index) {
             break;
         }
 
-        var filteredJson = JSON.parse('{"name": "' + returnedJson.name + '", "price": "' + returnedJson.current_price.price + '", "retail_store_id": "' + storeId + '", "item_group": "' + returnedJson.item_group + '"}');
+        var filteredJson = JSON.parse('{"ean": "' + productId + '", "name": "' + returnedJson.name + '", "price": "' + returnedJson.current_price.price + '", "retail_store_id": "' + storeId + '", "item_group": "' + returnedJson.item_group + '"}');
 
         console.log(JSON.stringify(filteredJson)); //result for current productid
 
@@ -74,6 +74,8 @@ function getProductInfo(storeId, productId, index) {
 
         //product infos for all array elements have been loaded from api
         if(index = processedResponse.products.length - 1) {
+            var storeNames = ["k kiosk Aeroport", "avec. Zürich Hbf.", "k kiosk Lyssbachpark"];
+            processedResponse.storename = storeNames[Math.floor(Math.random() * 3)];
             doDominiksStuff();
         }
 
