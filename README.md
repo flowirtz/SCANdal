@@ -1,14 +1,16 @@
 # SCANdal
 Transmitting receipts via qr-codes and saving trees.
 
+> Over **250 million gallons of oil**, 10 million trees and 1 billion gallons of water are consumed each year in the creation of receipts for the **United States alone**, generating 1.5 billion pounds of waste.
+
+[Source: [Huffington Post](www.huffingtonpost.com/will-hines/going-paperless-the-hidde_b_3008587.html) 2013]
+
 ## Abstract
 Did you ever get bothered by shop clerks, first printing your receipt and asking you afterwhise whether you actually want to keep it?
 And if you say 'no', they just throw it away?
 <br>Well, we did.
 
-Offering the digital transfer of receipts from the shop counter right onto your phone  we remove the relict of the past of actually printing them.
-
-## Ecological aspects
+Offering the digital transfer of receipts from the shop counter right onto your phone  we remove the relict of the past of actually printing them and reduce the amount of waste produced.
 
 ## How it works
 Whenever a customer buys something in a store, the receipt will be made machine-readable by generating a qr-code that then will be displayed on the clerks screen visible to the customer. Our app, being built on the [Adobe Phonegap](http://phonegap.com/), leverages the powerful [Scanner API by Scandit](http://docs.scandit.com/stable/phonegap/index.html) to scan generated qr code that includes the receipt.<br>
