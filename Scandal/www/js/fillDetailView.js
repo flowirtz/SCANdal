@@ -28,6 +28,9 @@ function fillDetailView(jsonfile) {
 
     $("#insertItHere").html(str);
 
-
+    populateOverview(loaded, true);
+    loaded = new Date();
     showDetails("hallo");
 }
+
+loaded = new Date();
