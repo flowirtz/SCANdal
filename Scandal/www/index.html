@@ -458,19 +458,20 @@
           function populateOverview(minDate, refresh) {
               // console.log("Mindestdatum", minDate);
 
+
               readBuys(function (tx, results) {
                   // console.log(results.rows.length);
                   lastDay = 0;
-
+                  $('#monthview').empty();
                   for (i = 0; i < results.rows.length; i++) {
                       p = results.rows.item(i);
                       console.log(p.date);
                       datum = new Date(p.date);
-                      if (datum < minDate) continue;
+                      // if (p.date < minDate) continue;
 
                       curDay = datum.getDate() + datum.getMonth() + datum.getYear();
 
-                      if (!refresh && curDay != lastDay) {
+                      if (curDay != lastDay) {
                           $('#monthview').prepend((lastDay != 0) ? '<hr />' : '');
                           lastDay = curDay;
 
