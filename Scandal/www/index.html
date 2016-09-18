@@ -467,7 +467,7 @@
                       console.log(p.date);
                       datum = new Date(p.date);
                       if (datum < minDate) continue;
-                      
+
                       curDay = datum.getDate() + datum.getMonth() + datum.getYear();
 
                       if (!refresh && curDay != lastDay) {
@@ -478,18 +478,18 @@
                                   '<span class="mdl-list__item-primary-content">' +
                                   '<b>' + days[datum.getDay()] + '</b>, ' + datum.getDate() + '.' +
                                   '</span>' +
-
-                                  '<a class="mdl-list__item-secondary-action"><b>' + Math.round(p.daily * 100) / 100 + ' €</b></a></div>';
+                                  '<a class="mdl-list__item-secondary-action"><b>' + Math.round(p.daily * 100) / 100 + ' €</b></a></div>');
+                      }
                       // console.log(p.day);
-                      $('#monthview .day_title').first().after('<div class="mdl-list__item buy_entry" data-buyid="'+p.id+'">' +
-                              '<span class="mdl-list__item-primary-content">' +
-                              '<span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">' + p.storename.charAt(0) + '</span>' +
-                              '<span>' + p.storename + '</span>' +
-                              '</span>' +
-                              '<a class="mdl-list__item-secondary-action">' + (Math.round(p.total * 100) / 100) + ' €</a></div>');
-
+                      $('#monthview .day_title').first().after('<div class="mdl-list__item buy_entry" data-buyid="' + p.id + '">' +
+                            '<span class="mdl-list__item-primary-content">' +
+                            '<span class="mdl-chip__contact mdl-color--indigo mdl-color-text--white">' + p.storename.charAt(0) + '</span>' +
+                            '<span>' + p.storename + '</span>' +
+                            '</span>' +
+                            '<a class="mdl-list__item-secondary-action">' + (Math.round(p.total * 100) / 100) + ' €</a></div>');
+                  }
                   
-                  setInitialListeners();
+                setInitialListeners();
               });
           }
       </script>
