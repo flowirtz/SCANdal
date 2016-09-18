@@ -5,6 +5,8 @@ Transmitting receipts via qr-codes and saving trees.
 
 [Source: [Huffington Post](www.huffingtonpost.com/will-hines/going-paperless-the-hidde_b_3008587.html) 2013]
 
+[DEMO VIDEO](https://sendvid.com/wpec2p2q)
+
 ## Abstract
 Did you ever get bothered by shop clerks, first printing your receipt and asking you afterwards whether you actually want to keep it?
 And if you say 'no', they just throw it away?
