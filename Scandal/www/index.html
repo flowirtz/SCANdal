@@ -249,7 +249,8 @@
                         </div>
                         <div class="mdl-list__item day_title">
                             <span class="mdl-list__item-primary-content">
-                                <b>Statistiken</b>
+                                
+                                <b>Statistics</b>
                             </span>
                         </div>
                         <div class="ct-chart"></div>
@@ -319,7 +320,7 @@
         </main>
 
             <script>
-              var eligible = true; //Turn true to turn on coupon
+              eligible = false; //Turn true to turn on coupon
 
               //TODO following by DoGl
               var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -338,6 +339,7 @@
 
                 db = window.openDatabase("db", "1.0", "SCANdal", 200000);
                 createTables();
+                
                 populateOverview(new Date('01-01-1970'), false);
                 drawStats();
 
@@ -347,6 +349,7 @@
               function setInitialListeners() {
                 $( ".buy_entry" ).each(function( index ) {
                   $( this ).click(function() {
+                    
                       populateDetails($(this).attr('data-buyid'));
                   });
                 });
@@ -362,6 +365,7 @@
               }
 
               function showDetails(detail_id) {
+                
                 $("#tabs").hide();
                 $("#details").show();
                 $("#back_button").show();
@@ -396,6 +400,7 @@
                       for (i = 0; i < res.groups.length; i++) {
                           series[i] = res.groups[i].total;
                           labels[i] = res.groups[i].name;
+                         
                           // console.log(res.groups[i]);
 
                       }
@@ -420,7 +425,8 @@
 
                       var options = {
                           donut: true,
-                          donutWidth: '42%',
+                         
+                          donutWidth: '70%',
                           showLabel: true,
                           labelPosition: 'outside'
                       };
@@ -448,12 +454,14 @@
       <script type="text/javascript" src="js/populateWithData.js"></script>
       <script type="text/javascript" src="js/scan.js"> </script>
       <script type="text/javascript">
+
           function populateOverview(minDate, refresh) {
               // console.log("Mindestdatum", minDate);
 
               readBuys(function (tx, results) {
                   // console.log(results.rows.length);
                   lastDay = 0;
+
                   for (i = 0; i < results.rows.length; i++) {
                       p = results.rows.item(i);
                       console.log(p.date);
@@ -461,6 +469,7 @@
                       if (datum < minDate) continue;
                       
                       curDay = datum.getDate() + datum.getMonth() + datum.getYear();
+
                       if (!refresh && curDay != lastDay) {
                           $('#monthview').prepend((lastDay != 0) ? '<hr />' : '');
                           lastDay = curDay;
@@ -469,9 +478,8 @@
                                   '<span class="mdl-list__item-primary-content">' +
                                   '<b>' + days[datum.getDay()] + '</b>, ' + datum.getDate() + '.' +
                                   '</span>' +
-                                  '<a class="mdl-list__item-secondary-action"><b>' + p.daily + ' €</b></a></div>');
-                          
-                      }
+
+                                  '<a class="mdl-list__item-secondary-action"><b>' + Math.round(p.daily * 100) / 100 + ' €</b></a></div>';
                       // console.log(p.day);
                       $('#monthview .day_title').first().after('<div class="mdl-list__item buy_entry" data-buyid="'+p.id+'">' +
                               '<span class="mdl-list__item-primary-content">' +
@@ -479,7 +487,7 @@
                               '<span>' + p.storename + '</span>' +
                               '</span>' +
                               '<a class="mdl-list__item-secondary-action">' + (Math.round(p.total * 100) / 100) + ' €</a></div>');
-                  }
+
                   
                   setInitialListeners();
               });

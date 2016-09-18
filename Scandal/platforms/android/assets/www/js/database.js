@@ -45,8 +45,8 @@ function insertBuyItems(tx, results) {
 
 function readBuys(callback) {
     db.transaction(function (tx) {
-        tx.executeSql("WITH D AS (select sum(total) daily, substr(date, 0, 10) day from BUY group by substr(date, 0, 10))" +
-            "SELECT * FROM BUY B, D WHERE D.day = substr(B.date, 0, 10) ORDER BY date ASC", [], callback, errorCB);
+        tx.executeSql("WITH D AS (select sum(total) daily, strftime('%d-%m-%Y', date/1000,'unixepoch') day from BUY group by strftime('%d-%m-%Y', date/1000,'unixepoch'))" +
+            "SELECT * FROM BUY B JOIN D ON D.day = strftime('%d-%m-%Y', B.date/1000,'unixepoch') ", [], callback, errorCB);
     }, errorCB);
 }
 
