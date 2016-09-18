@@ -11,7 +11,7 @@ function fillDetailView(jsonfile) {
 
     //Fill the fuckin table
     var products = "";
-    var origItem = $.parseHTML("<tr><td class='mdl-data-table__celfl--non-numeric' id='d-name'>John Lennon</td><td id='d-val'>40</td></tr>");
+    var origItem = $.parseHTML("<tr><td class='mdl-data-table__cell--non-numeric' id='d-name'>John Lennon</td><td id='d-val'>40</td></tr>");
 
     for(var i=0; i<jsonfile.products.length; i++) {
       var prod = jsonfile.products[i];
